@@ -70,32 +70,134 @@ class="underline">ECMA 262 standard</span>.
 
 # Event Loop
 
-- **Javascript engine** is not working alone. It resides inside a _hosting environment_. Javascript engine doesn't have an innate sense of time. It is the hosting environment that schedules code snippets to run by adding them to **event loop**. Javascript engine simply executes whatever snippets of code is given to it. If the file contains only a programs which are meant to be run sequentially, they are executed in a single stretch. But, if the program is met with asynchronous functions, Javascript engine executes those functions and ask host environment to put callback into the event loop queue once response data needed by the callback function is ready.
-  
-  **Exmamples of working of event loop:**
-    **Eg 1**: When a `setTimeout` function is processed, Javascript engine executes that code, and handover callback function to the hosting environment which keeps it aside for the configured period of timeout, and then pushes the callback of setTimeout function into the event loop.
+**Javascript engine** is not working alone. It resides inside a _hosting environment_. Javascript engine doesn't have an innate sense of time. It is the hosting environment that schedules code snippets to run by adding them to **event loop**. Javascript engine simply executes whatever snippets of code is given to it. If the file contains only a programs which are meant to be run sequentially, they are executed in a single stretch. But, if the program is met with asynchronous functions, Javascript engine executes those functions and ask host environment to put callback into the event loop queue once response data needed by the callback function is ready.
 
-    **Eg 2**: When an Ajax function is run, Javascript engine would execute the function and realize that it is demanding a callback when there is data. So, it asks the hosting environment to invoke the callback when there is response coming back from the Ajax request. Once there is data, hosting environment would put that callback function into event loop - which is executed by Javascript engine. So, the asynchronous nature of Javascript was achieved with the help of hosting environment until ES6. Then, **Promise** arrived, for which there is a nuanced behaviour with the introduction of **Job queue**.
+**Eg 1**: When a `setTimeout` function is processed, Javascript engine executes that code, and handover callback function to the hosting environment which keeps it aside for the configured period of timeout, and then pushes the callback of setTimeout function into the event loop.
 
-- You can assume the way Javascript engine works in the event loop is similar to the way human brain works. Human's aren't capable fo multi-tasking. All what a human brain does at the forefront of minds is to simply do context-switching.
+**Eg 2**: When an Ajax function is run, Javascript engine would execute the function and realize that it is demanding a callback when there is data. So, it asks the hosting environment to invoke the callback when there is response coming back from the Ajax request. Once there is data, hosting environment would put that callback function into event loop - which is executed by Javascript engine. So, the asynchronous nature of Javascript was achieved with the help of hosting environment until ES6. Then, **Promise** arrived, for which there is a nuanced behaviour with the introduction of **Job queue**.
+
+You can assume the way Javascript engine works in the event loop is similar to the way human brain works. Human's aren't capable fo multi-tasking. All what a human brain does at the forefront of minds is to simply do context-switching.
 
 # Job Queue
-- Each iteration of *event loop* is called a *tick*, where the next item to execute as present in top of the even loop queue is pulled into execution. When you have a callback function ready for execution (from ajax or setTimeout) it is put into the end of this event loop queue. But, if you use **ES6 Promise, it helps to put callback functions into the end of current tick itself**. You can thus put more items into this queue forming a special *Job queue* which is guaranteed to execute after current tick and before picking up next item in the event loop. But, if you continuously add items into the Job queue then you end up with same situation like an infinite loop preventing next item in event loop to be executed.
+Each iteration of *event loop* is called a *tick*, where the next item to execute as present in top of the even loop queue is pulled into execution. When you have a callback function ready for execution (from ajax or setTimeout) it is put into the end of this event loop queue. But, if you use **ES6 Promise, it helps to put callback functions into the end of current tick itself**. You can thus put more items into this queue forming a special *Job queue* which is guaranteed to execute after current tick and before picking up next item in the event loop. But, if you continuously add items into the Job queue then you end up with same situation like an infinite loop preventing next item in event loop to be executed.
 
 # Asynchronous execution
-
-- While you log data to console for debugging purpose, it may occur that data logged via `console.log(data)` is not showing correct value as expected. This is because, as it is an I/O bound operation, browser tends to run it in the background asynchronously, hence logging actually works at a later point of time, and by then the logged values might have already been changed. Better alternatives are :
-  - use breakpoints 
-  - save snapshots of objects by using `JSON.stringify(data)`
-
-- Javascript doesn't have multi-threading concept. Hence, the execution of a code snippet follows the rule of **run to completion** except for ES6 generators.
-  But, in Javascript also there is **non deterministic ordering of functions**.
-
-__For eg__: When there are a couple of ajax calls waiting to operate on a shared data, then both competes to reach first in performing callback function. This is a special condition called *race condition*.
+You can create async in your program using **callback**, **promise** & **web workers**. EventHandlers, AJAX handlers are common built-in examples of async in Javascript. Even though callback brings asynchrony to Javascript, it is still single threaded. Web workers are used to achieve async in multi-threaded execution environment.
 
 ## 1. Callback
 
-- Callbacks are the simplest unit of asynchronous implementation. But, it is not the most elegant form because of the following concerns:
+When there are a couple of ajax calls waiting to operate on a shared data, then both competes to reach first in performing callback function. This is a special condition called *race condition*.
+
+In Javascript also there is **non deterministic ordering of functions**. In order to prevent race condition and to
+bring ordering of callbacks, it is necessary to explicitly coordinate
+callbacks. Here are a few examples on how to achieve coordination on
+concurrent processes in javascript.
+
+**A case of non deterministic result**
+
+``` js
+var res = [];
+
+function response(data) {
+    res.push(data);
+}
+
+ajax("url 1", response);
+ajax("url 2", response);
+```
+
+**Solution**
+
+``` js
+var res = [];
+
+function response(data) {
+    if (res.url == 'url 1') {
+        res[0] = data;
+    }
+    if (res.url == 'url 2') {
+        res[1] = data;
+    }
+}
+
+ajax("url 1", response);
+ajax("url 2", response);
+```
+
+**Gate**
+
+``` js
+// Another solution is "gate"
+// i.e, if (a && b) then {}
+// this is regardless of whether "process a" finish first or "process b" finish first
+```
+
+**Latch**
+
+``` js
+// Another solution is "latch"
+// i.e, if (!a) then {}
+// this would allow only the first comer in two concurrent processes
+```
+
+**Async scheduling by breaking down a long process into sequence of
+small processes**
+
+``` js
+// Another solution is to "break down a long process into sequence of small tasks"
+// It allows to interleave these small tasks with other tasks waiting in queue for the event loop
+
+function response(bigData) {
+    if (bigData.length > 0) {
+        let chunk = bigData.splice(0, 1000);
+        // process chunk
+    } else {
+        return;
+    }
+
+
+    setTimeout(function () {
+        response(bigData);
+    }, 0);
+}
+
+ajax('url', response);
+
+// Trick : This "setTimeout hack" is a technique for "async scheduling", 
+// which simply means to stick the function in setTimeout to the end of current callback queue
+// so as to consider whatever events happened during the processing of a chunk of data.
+
+// Drawback : There is actually no guarantee on the order of the execution of these async scheduled queue of events, 
+// similar to "nextTick of nodejs"
+```
+
+**micro task queue aka Job queue**
+
+``` js
+console.log("A");
+
+setTimeout(function () {
+    console.log("B");
+}, 0);
+
+// theoretical job API
+job(function () {
+    console.log("C");
+
+    job(function () {
+        console.log("D");
+    });
+});
+
+// Output will be
+// A
+// C
+// D
+// B
+// Because, "B" goes into callback queue for event loop to pick it up.
+// But, "C" & "D" goes into the jobs queue which is processed before taking up next item from callback queue.
+```
+- Callbacks are the simplest form of asynchronous implementation. But, it is not the most elegant form because of the following concerns:
 
 ### Drawbacks of _callback pattern_:
   - Callbacks are not easy to contemplate by human brain. They doesn't let human brain to think in sequential manner. Certainly when the levels of callbacks go deeper in a large program with several of such repetitions, it is not going to be anywhere near comprehensible.
@@ -106,7 +208,7 @@ __For eg__: When there are a couple of ajax calls waiting to operate on a shared
 
 Instead of leaving the life of a callback invocation into the hands of asynchronous API (eg: ajax 3rd party API), it is quite anticipated to have a mechanism to understand when the asynchronous API's work is finished. This is what a Promise offers us. Promise let us to sequentially think and work based on the _future value_ now itself.
 
-## Promise examples 
+### Promise examples 
 ```Javascript
 /* eslint-disable prefer-promise-reject-errors */
 
@@ -183,6 +285,17 @@ Promise.race([p1, p2]).then(
 Javascript doesn't have multi-threading feature, but for performance sake if there was a possibility to run a piece of program in parallell which doesn't need to share resource with main program, that would be pretty useful. HTML5 realized this opportunity and introduced _Web Workers_. 
 
 ## Web Workers
+
+Web workers are way to achieve async in must-threaded execution
+environment. Web workers isn't a feature of Javascript and also that
+Javascript is not multi-threaded. But, browser provides web worker so
+that you can achieve multi-threading capability to Javascript by
+leveraging it. Normally, there is only a single thread to perform both
+the DOM rendering and all other Javascript code execution in a page.
+But, when you introduce web worker you can use it to perform all the
+Non-DOM javascript code execution in a separate thread to work in
+parallel and later interact with the main thread via postMesage. 
+
 A worker thread is a feature provided by hosting environment (browser), its not part of Javascript because there is no multi-threading in Javascript. 
 
 ### Dedicated worker
@@ -198,9 +311,38 @@ w1.postMessage(data);
 You can offload activities such as loading several scripts, other high network traffic, image processing, complex CPU intensive math calculation etc in the worker thread. And, once data is processed it can be send back to main program through message events. 
 
 #### Data transfer
-Data transfer through message events simply works by copying information from source to destination (main -> worker or worker-> main) using **structured cloning algorithm**. This is memory intensive because your data has to be copied, thus doubling size in memory. New age workers are efficient to simply change ownership of data instead of copying from one location to another. Hence, the only condition for that data is that it should implement _Transferable_ interface.
+
+##### Structured cloning (pass by value)
+Data transfer through message events simply works by copying information from source to destination (main -> worker or worker-> main) using **structured cloning algorithm**. This is memory intensive because your data has to be copied, thus doubling size in memory. 
+
+##### Transferable Interface (pass by reference)
+New age workers are efficient to simply change ownership of data instead of copying from one location to another. Hence, the only condition for that data is that it should implement _Transferable_ interface.
 
 If an app/page using worker is opened in multiple tabs of browser, it causes duplication of workers, which is performance bound. This can be fixed using _Shared Workers_.
 
 ### Shared worker
 A shared worker can operate with several source/target programs in shared state using a single worker. To identify browser tab/instance of page is facilitated using _ports_. When you create a worker from a tab to the Javascript file/blob, Shared worker is instantiated and connects to that tab via a port. Similarly, any other tabs will connect with different ports to the same shared worker.
+
+
+- While you log data to console for debugging purpose, it may occur that data logged via `console.log(data)` is not showing correct value as expected. This is because, as it is an I/O bound operation, browser tends to run it in the background asynchronously, hence logging actually works at a later point of time, and by then the logged values might have already been changed. Better alternatives are :
+  - use breakpoints 
+  - save snapshots of objects by using `JSON.stringify(data)`
+
+- Javascript doesn't have multi-threading concept. Hence, the execution of a code snippet follows the rule of **run to completion** except for ES6 generators.
+
+
+# References
+
+1.  <https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db> (A
+    great article on web workers)
+2.  <https://www.joji.me/en-us/blog/performance-issue-of-using-massive-transferable-objects-in-web-worker>  (Transfer
+    speed of large data between web worker and main thread)
+3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker (Things
+    you can do with a web worker)
+4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2 (Download
+    files using web worker)
+5.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Using\_web\_workers (Using
+    web workers)
+6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers (APIs
+    available in the web workers)
+  
