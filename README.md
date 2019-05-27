@@ -331,7 +331,7 @@ A shared worker can operate with several source/target programs in shared state 
 - Javascript doesn't have multi-threading concept. Hence, the execution of a code snippet follows the rule of **run to completion** except for ES6 generators.
 
 
-# References
+# Interesting Reads
 
 1.  https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db 
     (A great article on web workers)
