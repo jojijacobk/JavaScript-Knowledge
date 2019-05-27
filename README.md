@@ -333,16 +333,16 @@ A shared worker can operate with several source/target programs in shared state 
 
 # References
 
-1.  <https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db> (A
-    great article on web workers)
-2.  <https://www.joji.me/en-us/blog/performance-issue-of-using-massive-transferable-objects-in-web-worker>  (Transfer
-    speed of large data between web worker and main thread)
-3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker (Things
-    you can do with a web worker)
-4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2 (Download
-    files using web worker)
-5.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Using\_web\_workers (Using
-    web workers)
-6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers (APIs
-    available in the web workers)
+1.  https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db 
+    (A great article on web workers)
+2.  https://www.joji.me/en-us/blog/performance-issue-of-using-massive-transferable-objects-in-web-worker 
+    (Transfer speed of large data between web worker and main thread)
+3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker 
+    (Things you can do with a web worker)
+4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2
+    (Download files using web worker)
+5.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Using\_web\_workers
+    (Using web workers)
+6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers
+    (APIs available in the web workers)
   
