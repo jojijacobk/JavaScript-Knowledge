@@ -1,4 +1,4 @@
-# About Javascript
+# Evolution of Javascript
 
 <img src="https://github.com/jojijacobk/_draw.io/raw/master/About%20Javascript.png" width="1000"/> <br/>
 
@@ -54,7 +54,7 @@ class="underline">ECMA 262 standard</span>.
 | Javascript | Node    | V8                         |
 | Javascript | Browser | V8                         |
 
-## Javascript Engines
+# Different Javascript Engines
 
 
 |Engines|Sponsors|Built using|
@@ -93,7 +93,7 @@ class="underline">ECMA 262 standard</span>.
 
 __For eg__: When there are a couple of ajax calls waiting to operate on a shared data, then both competes to reach first in performing callback function. This is a special condition called *race condition*.
 
-## Callback
+## 1. Callback
 
 - Callbacks are the simplest unit of asynchronous implementation. But, it is not the most elegant form because of the following concerns:
 
@@ -102,7 +102,7 @@ __For eg__: When there are a couple of ajax calls waiting to operate on a shared
   - Another drawback is the trust issue because of _inversion of control_. A callback function may be invoked by a 3rd party code. You don't have any control over it. They may fail to call your code, or call multiple times, or call too early, or call lately, or miss some parameters necessary for the call.
 - These disadvantages calls for the need for a better asynchronous orchestration - that's **ES6 Promise**.
 
-## Promise
+## 2. Promise
 
 Instead of leaving the life of a callback invocation into the hands of asynchronous API (eg: ajax 3rd party API), it is quite anticipated to have a mechanism to understand when the asynchronous API's work is finished. This is what a Promise offers us. Promise let us to sequentially think and work based on the _future value_ now itself.
 
