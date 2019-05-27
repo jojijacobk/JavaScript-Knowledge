@@ -1,6 +1,6 @@
 # About Javascript
 
-![About Javsacript](https://github.com/jojijacobk/draw.io/raw/master/About%20Javascript.png "About Javascript")
+![About Javsacript](https://github.com/jojijacobk/_draw.io/raw/master/About%20Javascript.png "About Javascript")
 
 Javascript is a general purpose <span class="underline">scripting
 language</span>, which is an implementation of <span
