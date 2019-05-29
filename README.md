@@ -48,17 +48,41 @@ class="underline">ECMA 262 standard</span>.
 -   Reading _Javascript documentation_
     helps to understand how to use this script language to get things
     done.
--   A **Javascript engine** is a program that understands and executes
-    javascript. Eg: _V8 engine for Chrome_,
-    _Chakra for Edge_, _SpiderMonkey for FIrefox_
-    -   **V8 engine** for Javascript is very fast because the Javascript
-        code is directly translated to machine code by V8 by using a
-        JIT. There is no intermediate code (interpreted code), hence
-        making the execution very fast.
--   The same javascript engine can work on different runtime
-    environments. For eg: V8 engine works for Chrome as well as Node.js
-    server
--   A **Javascript runtime** is an environment which provides a host of
+    
+- Javascript is **single threaded, non blocking, asynchronous concurrent** programming language.
+- Javascript **has one call stack**
+    _one call stack === one thread === only one thing is executed at a time_
+- Javascript **has one task queue** aka **callback queue**
+    _The items in the **callback queue** would be shifted into **event loop** during its turn, and which is then pushed to the **call stack** for execution at another turn._
+- Javascript **has one micro task queue** aka **job queue)**
+    _Jobs like **Promise** would wait in microtask queue instead of callback queue to get priority attention. So, when a call stack is empty microtask queue is first pushed into call stack before looking into task queue_
+- Javacript **has one event loop**
+    when call stack is empty, event loop moves one item from either of the following into call stack based on some rules:
+  - the callback queue, or 
+  - the micro task queue, or
+  - the renderer queue
+
+    This event loop enables **concurrency in javascript** as you could at the same time scroll down to load new content from Ajax, click on a button to fire some action, keypress to trigger some other actions and so on.
+- Javascript has one **renderer queue**
+    The browser is constrained by what we’re doing in JavaScript. It would
+    like to repaint the screen every 16.6ms (or 60 frames/second). But it
+    can’t actually do a render if there’s code on the stack.
+- Hosting environment provides many extra APIs to Javascript. _For eg: Browser runtime environment gives **Web APIs** to Javascript_. The following actions are handled by Web APIs:
+  -   user fired events such as mouse click, DOM events, keyboard events
+  -   AJAX
+  -   network events (online, offline)
+  -   timer events like function called from setTimeout etc
+
+<img src="attachments/1082610039/1086162115.png" width="633"/><br/>
+    
+# Javascript Engine
+-   A Javascript engine is a program that understands and executes Javascript in Browser, Server, IoT device etc. Examples for Javascript engines in a Browser are: _V8 engine for Chrome_, _Chakra for Edge_, _SpiderMonkey for FIrefox_.  
+-   Javascript Engine for Browser and Server consume high memory and gives high speed of execution. _Eg: V8_
+-   Javascript Engine for IoT takes low memory and gives low speed of execution. _Eg: Duktape, JerryScript_
+-   V8 engine for Javascript is very fast because the Javascript code is directly translated to machine code by V8 by using a JIT. There is no intermediate code (interpreted code), hence making the execution very fast. So, even in Node.js server you don't need to compile javascript code to intermediate code ahead of time like how Java does. In Java _AOT (Ahead of Time) compilation_ of java code is done by _Javac_ compiler to produce an intermediate code.
+-   Javascript Engine is single threaded, and very good for writing a non blocking program for server using Node.js. But, if you need high performance computing Node.js isn't good because it doesn't utilize maximum CPU because it has only a single thread.
+-   A Javascript engine can work on different runtime environments. _Eg: V8 engine works for Chrome as well as Node.js server_.
+-   A Javascript runtime is an environment which provides a host of
     objects for javascript to operate on, and is executed by javascript
     engine. So, Browser is a javascript runtime which provides a host of
     objects such as window, document, HTML elements etc which is
