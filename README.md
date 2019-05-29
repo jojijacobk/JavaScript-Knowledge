@@ -1,36 +1,13 @@
-   * [Evolution of Javascript](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#evolution-of-javascript)
-   * [Different Javascript Engines](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#different-javascript-engines)
-   * [Event Loop](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#event-loop)
-   * [Job Queue](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#job-queue)
-   * [Asynchronous execution](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#asynchronous-execution)
-      * [1. Callback](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#1-callback)
-         * [Drawbacks of <em>callback pattern</em>:](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#drawbacks-of-callback-pattern)
-      * [2. Promise](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#2-promise)
-         * [Promise examples](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#promise-examples)
-   * [Performance](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#performance)
-      * [Web Workers](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#web-workers)
-         * [Dedicated worker](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#dedicated-worker)
-            * [Data transfer](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#data-transfer)
-               * [Structured cloning (pass by value)](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#structured-cloning-pass-by-value)
-               * [Transferable Interface (pass by reference)](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#transferable-interface-pass-by-reference)
-         * [Shared worker](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#shared-worker)
-   * [Interesting Reads](https://github.com/jojijacobk/About-Javascript/blob/master/README.md#interesting-reads)
+# About Javascript
+<img src="attachments/1.png" width="600"/> <br/>
+<img src="attachments/2.png" width="600"/> <br/>
 
-
-# Evolution of Javascript
-
-<img src="https://github.com/jojijacobk/_draw.io/raw/master/About%20Javascript.png" width="1000"/> <br/>
-
-Javascript is a general purpose <span class="underline">scripting
-language</span>, which is an implementation of <span
-class="underline">ECMAScript specification</span> based on <span
-class="underline">ECMA 262 standard</span>.
-
+- Javascript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
 -   **Ecma International** is an organization that creates standards for
     technologies. They have created several standards for various
     technologies, whereas the standard code named as **ECMA 262**
-    defines a <span class="underline">scripting language specification
-    called **ECMAScript**</span>.
+    defines a scripting language specification
+    called **ECMAScript**. Javascript is an implementation of ECMAScript.
 -   **ECMA 262** is a standard, for example, similar to QWERTY layout
     standard. Every keyboard manufacturers can make their own brand of
     keyboard compliant to QWERTY layout standard. Similarly, the
@@ -48,8 +25,6 @@ class="underline">ECMA 262 standard</span>.
 -   Reading _Javascript documentation_
     helps to understand how to use this script language to get things
     done.
-    
-- Javascript is **single threaded, non blocking, asynchronous concurrent** programming language.
 - Javascript **has one call stack**
     _one call stack === one thread === only one thing is executed at a time_
 - Javascript **has one task queue** aka **callback queue**
@@ -67,13 +42,15 @@ class="underline">ECMA 262 standard</span>.
     The browser is constrained by what we’re doing in JavaScript. It would
     like to repaint the screen every 16.6ms (or 60 frames/second). But it
     can’t actually do a render if there’s code on the stack.
-- Hosting environment provides many extra APIs to Javascript. _For eg: Browser runtime environment gives **Web APIs** to Javascript_. The following actions are handled by Web APIs:
-  -   user fired events such as mouse click, DOM events, keyboard events
-  -   AJAX
-  -   network events (online, offline)
-  -   timer events like function called from setTimeout etc
+- **Host environment** provides many extra APIs to Javascript. For example:
+  - Node.js is a server side host environment for Javascript, which gives several APIs such as FileSystem, Process etc. 
+  - Browser is a host environment which gives Web APIs to Javascript. The following actions are handled by **Web APIs:**
+    -   user fired events such as mouse click, DOM events, keyboard events
+    -   AJAX
+    -   network events (online, offline)
+    -   timer events like function called from setTimeout etc
 
-<img src="attachments/1082610039/1086162115.png" width="633"/><br/>
+<img src="attachments/1086162115.png" width="633"/><br/>
     
 # Javascript Engine
 -   A Javascript engine is a program that understands and executes Javascript in Browser, Server, IoT device etc. Examples for Javascript engines in a Browser are: _V8 engine for Chrome_, _Chakra for Edge_, _SpiderMonkey for FIrefox_.  
@@ -97,7 +74,7 @@ class="underline">ECMA 262 standard</span>.
 | Javascript | Node    | V8                         |
 | Javascript | Browser | V8                         |
 
-# Different Javascript Engines
+## Different Javascript Engines
 
 
 |Engines|Sponsors|Built using|
@@ -110,6 +87,23 @@ class="underline">ECMA 262 standard</span>.
 |JerryScript|IoT||
 |Nashorn|open source as part of OpenJDK by Oracle||
 |KJS|for KDE, used by Konqueror||
+
+# Rendering Engine
+
+<img src="attachments/1082617524.png" width="676"/><br/>
+
+This is how browser renders a web page.
+
+1.  **DOM tree** is created by rendering engine by parsing HTML document
+2.  **Render tree** is created by rendering engine by parsing CSS rules
+    in the document & external stylesheets, and combing it with the DOM
+    tree. This render tree is a tree of rectangles in the order of HTML
+    elements in document with each one carrying CSS attributes such as
+    color, dimensions etc.
+3.  **Layout** process will apply geometrical positioning to each node
+    in render tree by giving exact coordinates to each nodes on screen.
+4.  **Painting** is the process where each node in Render tree is
+    traversed and painted on screen.
 
 # Event Loop
 
@@ -183,8 +177,7 @@ ajax("url 2", response);
 // this would allow only the first comer in two concurrent processes
 ```
 
-**Async scheduling by breaking down a long process into sequence of
-small processes**
+**Async scheduling by breaking down a long process into sequence of small processes**
 
 ``` js
 // Another solution is to "break down a long process into sequence of small tasks"
@@ -214,7 +207,7 @@ ajax('url', response);
 // similar to "nextTick of nodejs"
 ```
 
-**micro task queue aka Job queue**
+**Micro Task queue aka Job queue**
 
 ``` js
 console.log("A");
@@ -388,4 +381,10 @@ A shared worker can operate with several source/target programs in shared state 
     (Using web workers)
 6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers
     (APIs available in the web workers)
+7.  https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf
+8.  [JavaScript's Call Stack, Callback Queue, and Event Loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+9.  [Loupe tool for live demo](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+10. [Very detailed explanation on event loop, callback queue and micro task queue](https://www.zeolearn.com/magazine/javascript-how-is-callback-execution-strategy-for-promises-different-than-dom-events-callback)
+11. [Overview of Javascript engine, runtime and call stack ](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
+12. [Excellent example on making blocking infinite recursion to cool infinite non blocking recursion](https://stackoverflow.com/questions/39459236/understanding-event-queue-and-call-stack-in-javascript)
   
