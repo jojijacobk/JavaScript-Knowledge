@@ -1,6 +1,6 @@
 # About Javascript
-<img src="attachments/1.png" width="600"/> <br/>
-<img src="attachments/2.png" width="600"/> <br/>
+<img src="attachments/1.png" width="700"/> <br/>
+<img src="attachments/2.png" width="900"/> <br/>
 
 - Javascript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
 -   **Ecma International** is an organization that creates standards for
