@@ -1,3 +1,24 @@
+   * [About Javascript](README.md#about-javascript)
+   * [Javascript Engine](README.md#javascript-engine)
+      * [Different Javascript Engines](README.md#different-javascript-engines)
+   * [Rendering Engine](README.md#rendering-engine)
+   * [Event Loop](README.md#event-loop)
+   * [Job Queue](README.md#job-queue)
+   * [Asynchronous execution](README.md#asynchronous-execution)
+      * [1. Callback](README.md#1-callback)
+         * [Drawbacks of <em>callback pattern</em>:](README.md#drawbacks-of-callback-pattern)
+      * [2. Promise](README.md#2-promise)
+         * [Promise examples](README.md#promise-examples)
+   * [Performance](README.md#performance)
+      * [Web Workers](README.md#web-workers)
+         * [Dedicated worker](README.md#dedicated-worker)
+            * [Data transfer](README.md#data-transfer)
+               * [Structured cloning (pass by value)](README.md#structured-cloning-pass-by-value)
+               * [Transferable Interface (pass by reference)](README.md#transferable-interface-pass-by-reference)
+         * [Shared worker](README.md#shared-worker)
+   * [Interesting Reads](README.md#interesting-reads)
+
+
 # About Javascript
 <img src="attachments/1.png" width="700"/> <br/>
 <img src="attachments/2.png" width="900"/> <br/>
