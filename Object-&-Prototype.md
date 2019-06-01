@@ -150,7 +150,7 @@ You can circumvent the Prototypal Inheritance with Mixin
 
     -   ### Implicit mixin 
 
-## **Javascript Prototype**
+## Javascript Prototype
 
 -   A.[[Prototype]] is the representation of an object A's prototype
 -   Access prototype of an object
