@@ -133,22 +133,22 @@ is preferred than built in objects.
 
 You can circumvent the Prototypal Inheritance with Mixin
 
--   -   ### Explicit mixin 
+- ### Explicit mixin 
 
-        -   Extend
+    -   Extend
 
-            In various popular libraries extend is a custom
-            implementation to simply copy properties (including
-            functions) from one object to another. **Note:** be aware
-            that even though we copy properties(including functions) ,
-            still the functions are shared references.
+        In various popular libraries extend is a custom
+        implementation to simply copy properties (including
+        functions) from one object to another. **Note:** be aware
+        that even though we copy properties(including functions) ,
+        still the functions are shared references.
 
-        -   Parasitic inheritance
+    -   Parasitic inheritance
 
-             Another variation is called as  as termed by Doughlas
-            Crockford. 
+         Another variation is called as  as termed by Doughlas
+        Crockford. 
 
-    -   ### Implicit mixin 
+- ### Implicit mixin 
 
 ## Javascript Prototype
 
