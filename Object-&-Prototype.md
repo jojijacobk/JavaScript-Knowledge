@@ -10,7 +10,7 @@
       * [Mixin](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#mixin)
          * [Explicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#explicit-mixin)
          * [Implicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#implicit-mixin)
-      * [<strong>Javascript Prototype</strong>](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#javascript-prototype)
+      * [Javascript Prototype](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#javascript-prototype)
       * [Shadowing Properties](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#shadowing-properties)
       * [Prototype linkage](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#prototype-linkage)
 
