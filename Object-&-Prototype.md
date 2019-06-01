@@ -1,3 +1,19 @@
+   * [Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#objects)
+      * [Built in objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#built-in-objects)
+      * [Primitive literals](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#primitive-literals)
+      * [Contents of Object](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#contents-of-object)
+      * [Arrays](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#arrays)
+      * [Duplicating Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#duplicating-objects)
+      * [Property Descriptors](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#property-descriptors)
+   * [Types](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#types)
+   * [Inheritance](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#inheritance)
+      * [Mixin](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#mixin)
+         * [Explicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#explicit-mixin)
+         * [Implicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#implicit-mixin)
+      * [<strong>Javascript Prototype</strong>](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#javascript-prototype)
+      * [Shadowing Properties](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#shadowing-properties)
+      * [Prototype linkage](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#prototype-linkage)
+
 # Objects
 
 Objects can be created in two ways :
