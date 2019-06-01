@@ -130,7 +130,7 @@ is preferred than built in objects.
     -   11 bits for exponents
     -   52 bits for the integer part of number
 
-<img src="attachments/1187389428/1187389524.png" width="550"/><br/>
+<img src="attachments/1187389524.png" width="550"/><br/>
 
 -   The way floating point data types handle fractions is different than
     human calculation because they represent a fraction in binary form
