@@ -121,6 +121,42 @@ is preferred than built in objects.
             -   array (**structured contents** as compared to object)
             -   function (**callable object** - aka "first class"
                 objects)
+
+**Number**
+
+-   In javascript, numbers are represented using Number data type. 
+-   A number is 64 bit floating point representation of a number.
+    -   1 bit for sign
+    -   11 bits for exponents
+    -   52 bits for the integer part of number
+
+<img src="attachments/1187389428/1187389524.png" width="550"/><br/>
+
+-   The way floating point data types handle fractions is different than
+    human calculation because they represent a fraction in binary form
+    where there is no exact equivalent for some fraction values.   
+    So, for eg: `.2 + .1` is not `.3`, but `0.30000000000000004`  
+    To fix this issue you can use `.toFixed()`  
+    like `(0.2+0.1).toFixed(1)`  
+-   The highest possible integer value that can be handled by a Number
+    type in javascript is `Number.MAX_SAFE_INTEGER`. Similarly,
+    `Number.MIN_SAFE_INTEGER`
+-   If you are going to work on high precision math, make use of some
+    libraries which purely serve this purpose.
+
+**Short-circuit evaluation**
+
+-   `x || y` **fallback** to `y` if `x` is falsy
+-   `x && y`  **pick** the last value if all `x, y` are truthy
+-   right side part is evaluated only if necessary
+
+**Bindings/Variables**
+
+-   name of a binding 
+    -   can start with **alphabets, _ , $**
+    -   **can't** start with number or any other symbols
+    -   **can't** be a reserved word
+
                 
 # Function
 
