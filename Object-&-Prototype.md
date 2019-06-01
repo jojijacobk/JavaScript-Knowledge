@@ -1,3 +1,4 @@
+
    * [Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#objects)
       * [Built in objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#built-in-objects)
       * [Primitive literals](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#primitive-literals)
@@ -6,13 +7,12 @@
       * [Duplicating Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#duplicating-objects)
       * [Property Descriptors](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#property-descriptors)
    * [Types](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#types)
+   * [Function](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#function)
    * [Inheritance](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#inheritance)
       * [Mixin](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#mixin)
          * [Explicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#explicit-mixin)
          * [Implicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#implicit-mixin)
-      * [Javascript Prototype](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#javascript-prototype)
-      * [Shadowing Properties](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#shadowing-properties)
-      * [Prototype linkage](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#prototype-linkage)
+      * [Prototypal Inheritance](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#prototypal-inheritance)
 
 # Objects
 
