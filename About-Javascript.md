@@ -1,34 +1,34 @@
-   * [About Javascript](About-Javascript.md#about-javascript)
-   * [Javascript Engine](About-Javascript.md#javascript-engine)
-      * [Different Javascript Engines](About-Javascript.md#different-javascript-engines)
-   * [Rendering Engine](About-Javascript.md#rendering-engine)
-   * [Event Loop](About-Javascript.md#event-loop)
-   * [Job Queue](About-Javascript.md#job-queue)
-   * [Asynchronous execution](About-Javascript.md#asynchronous-execution)
-      * [1. Callback](About-Javascript.md#1-callback)
-         * [Drawbacks of <em>callback pattern</em>:](About-Javascript.md#drawbacks-of-callback-pattern)
-      * [2. Promise](About-Javascript.md#2-promise)
-         * [Promise examples](About-Javascript.md#promise-examples)
-   * [Performance](About-Javascript.md#performance)
-      * [Web Workers](About-Javascript.md#web-workers)
-         * [Dedicated worker](About-Javascript.md#dedicated-worker)
-            * [Data transfer](About-Javascript.md#data-transfer)
-               * [Structured cloning (pass by value)](About-Javascript.md#structured-cloning-pass-by-value)
-               * [Transferable Interface (pass by reference)](About-Javascript.md#transferable-interface-pass-by-reference)
-         * [Shared worker](About-Javascript.md#shared-worker)
-   * [Interesting Reads](About-Javascript.md#interesting-reads)
+   * [About JavaScript](About-JavaScript.md#about-JavaScript)
+   * [JavaScript Engine](About-JavaScript.md#JavaScript-engine)
+      * [Different JavaScript Engines](About-JavaScript.md#different-JavaScript-engines)
+   * [Rendering Engine](About-JavaScript.md#rendering-engine)
+   * [Event Loop](About-JavaScript.md#event-loop)
+   * [Job Queue](About-JavaScript.md#job-queue)
+   * [Asynchronous execution](About-JavaScript.md#asynchronous-execution)
+      * [1. Callback](About-JavaScript.md#1-callback)
+         * [Drawbacks of <em>callback pattern</em>:](About-JavaScript.md#drawbacks-of-callback-pattern)
+      * [2. Promise](About-JavaScript.md#2-promise)
+         * [Promise examples](About-JavaScript.md#promise-examples)
+   * [Performance](About-JavaScript.md#performance)
+      * [Web Workers](About-JavaScript.md#web-workers)
+         * [Dedicated worker](About-JavaScript.md#dedicated-worker)
+            * [Data transfer](About-JavaScript.md#data-transfer)
+               * [Structured cloning (pass by value)](About-JavaScript.md#structured-cloning-pass-by-value)
+               * [Transferable Interface (pass by reference)](About-JavaScript.md#transferable-interface-pass-by-reference)
+         * [Shared worker](About-JavaScript.md#shared-worker)
+   * [Interesting Reads](About-JavaScript.md#interesting-reads)
 
 
-# About Javascript
+# About JavaScript
 <img src="attachments/1.png" width="700"/> <br/>
 <img src="attachments/2.png" width="900"/> <br/>
 
-- Javascript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
+- JavaScript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
 -   **Ecma International** is an organization that creates standards for
     technologies. They have created several standards for various
     technologies, whereas the standard code named as **ECMA 262**
     defines a scripting language specification
-    called **ECMAScript**. Javascript is an implementation of ECMAScript.
+    called **ECMAScript**. JavaScript is an implementation of ECMAScript.
 -   **ECMA 262** is a standard, for example, similar to QWERTY layout
     standard. Every keyboard manufacturers can make their own brand of
     keyboard compliant to QWERTY layout standard. Similarly, the
@@ -37,20 +37,20 @@
     a scripting language to be considered as ECMAScript compliant.
     ES2015, ES2016 etc are different versions of ECMA 262 standard.
 -   A **scripting language** is a programming language designed to act
-    specifically on an external entity.  For example Javascript is a
+    specifically on an external entity.  For example JavaScript is a
     scripting language targeting at external entities such as browser,
     node.js server etc.
 -   Reading _ECMAScript specification_
     helps to understand how to make a scripting language like
-    Javascript.
--   Reading _Javascript documentation_
+    JavaScript.
+-   Reading _JavaScript documentation_
     helps to understand how to use this script language to get things
     done.
-- Javascript **has one call stack**
+- JavaScript **has one call stack**
     _one call stack === one thread === only one thing is executed at a time_
-- Javascript **has one task queue** aka **callback queue**
+- JavaScript **has one task queue** aka **callback queue**
     _The items in the **callback queue** would be shifted into **event loop** during its turn, and which is then pushed to the **call stack** for execution at another turn._
-- Javascript **has one micro task queue** aka **job queue)**
+- JavaScript **has one micro task queue** aka **job queue)**
     _Jobs like **Promise** would wait in microtask queue instead of callback queue to get priority attention. So, when a call stack is empty microtask queue is first pushed into call stack before looking into task queue_
 - Javacript **has one event loop**
     when call stack is empty, event loop moves one item from either of the following into call stack based on some rules:
@@ -58,14 +58,14 @@
   - the micro task queue, or
   - the renderer queue
 
-    This event loop enables **concurrency in javascript** as you could at the same time scroll down to load new content from Ajax, click on a button to fire some action, keypress to trigger some other actions and so on.
-- Javascript has one **renderer queue**
+    This event loop enables **concurrency in JavaScript** as you could at the same time scroll down to load new content from Ajax, click on a button to fire some action, keypress to trigger some other actions and so on.
+- JavaScript has one **renderer queue**
     The browser is constrained by what we’re doing in JavaScript. It would
     like to repaint the screen every 16.6ms (or 60 frames/second). But it
     can’t actually do a render if there’s code on the stack.
-- **Host environment** provides many extra APIs to Javascript. For example:
-  - Node.js is a server side host environment for Javascript, which gives several APIs such as FileSystem, Process etc. 
-  - Browser is a host environment which gives Web APIs to Javascript. The following actions are handled by **Web APIs:**
+- **Host environment** provides many extra APIs to JavaScript. For example:
+  - Node.js is a server side host environment for JavaScript, which gives several APIs such as FileSystem, Process etc. 
+  - Browser is a host environment which gives Web APIs to JavaScript. The following actions are handled by **Web APIs:**
     -   user fired events such as mouse click, DOM events, keyboard events
     -   AJAX
     -   network events (online, offline)
@@ -73,41 +73,41 @@
 
 <img src="attachments/1086162115.png" width="633"/><br/>
     
-# Javascript Engine
--   A Javascript engine is a program that understands and executes Javascript in Browser, Server, IoT device etc. Examples for Javascript engines in a Browser are: _V8 engine for Chrome_, _Chakra for Edge_, _SpiderMonkey for FIrefox_.  
--   Javascript Engine for Browser and Server consume high memory and gives high speed of execution. _Eg: V8_
--   Javascript Engine for IoT takes low memory and gives low speed of execution. _Eg: Duktape, JerryScript_
--   V8 engine for Javascript is very fast because the Javascript code is directly translated to machine code by V8 by using a JIT. There is no intermediate code (interpreted code), hence making the execution very fast. So, even in Node.js server you don't need to compile javascript code to intermediate code ahead of time like how Java does. In Java _AOT (Ahead of Time) compilation_ of java code is done by _Javac_ compiler to produce an intermediate code.
--   Javascript Engine is single threaded, and very good for writing a non blocking program for server using Node.js. But, if you need high performance computing Node.js isn't good because it doesn't utilize maximum CPU because it has only a single thread.
--   A Javascript engine can work on different runtime environments. _Eg: V8 engine works for Chrome as well as Node.js server_.
--   A Javascript runtime is an environment which provides a host of
-    objects for javascript to operate on, and is executed by javascript
-    engine. So, Browser is a javascript runtime which provides a host of
+# JavaScript Engine
+-   A JavaScript engine is a program that understands and executes JavaScript in Browser, Server, IoT device etc. Examples for JavaScript engines in a Browser are: _V8 engine for Chrome_, _Chakra for Edge_, _SpiderMonkey for FIrefox_.  
+-   JavaScript Engine for Browser and Server consume high memory and gives high speed of execution. _Eg: V8_
+-   JavaScript Engine for IoT takes low memory and gives low speed of execution. _Eg: Duktape, JerryScript_
+-   V8 engine for JavaScript is very fast because the JavaScript code is directly translated to machine code by V8 by using a JIT. There is no intermediate code (interpreted code), hence making the execution very fast. So, even in Node.js server you don't need to compile JavaScript code to intermediate code ahead of time like how Java does. In Java _AOT (Ahead of Time) compilation_ of java code is done by _Javac_ compiler to produce an intermediate code.
+-   JavaScript Engine is single threaded, and very good for writing a non blocking program for server using Node.js. But, if you need high performance computing Node.js isn't good because it doesn't utilize maximum CPU because it has only a single thread.
+-   A JavaScript engine can work on different runtime environments. _Eg: V8 engine works for Chrome as well as Node.js server_.
+-   A JavaScript runtime is an environment which provides a host of
+    objects for JavaScript to operate on, and is executed by JavaScript
+    engine. So, Browser is a JavaScript runtime which provides a host of
     objects such as window, document, HTML elements etc which is
-    operated on by javascript, and is executed by a javascript engine
-    inside this javascript runtime environment. It is the runtime
+    operated on by JavaScript, and is executed by a JavaScript engine
+    inside this JavaScript runtime environment. It is the runtime
     environment (browser) that provides the web apis to work on these
     host of objects.
 
 | Language   | Runtime | Engine which executes code |
-|------------|---------|----------------------------|
+| ---------- | ------- | -------------------------- |
 | Java       | JRE     | JVM                        |
-| Javascript | Node    | V8                         |
-| Javascript | Browser | V8                         |
+| JavaScript | Node    | V8                         |
+| JavaScript | Browser | V8                         |
 
-## Different Javascript Engines
+## Different JavaScript Engines
 
 
-|Engines|Sponsors|Built using|
-|-------|---------|----------|
-|V8|Maintained by Google as open source, used by Chrome & Node.Js|C++|
-|SpiderMonkey|Started by Netscape, maintained today by Firefox||
-|Rhino|Maintained by Mozilla Foundation as open source|Java|
-|JavascriptCore (aka Nitro)|Maintained by Apple for Safari|
-|Chakra|IE, Edge||
-|JerryScript|IoT||
-|Nashorn|open source as part of OpenJDK by Oracle||
-|KJS|for KDE, used by Konqueror||
+| Engines                    | Sponsors                                                      | Built using |
+| -------------------------- | ------------------------------------------------------------- | ----------- |
+| V8                         | Maintained by Google as open source, used by Chrome & Node.Js | C++         |
+| SpiderMonkey               | Started by Netscape, maintained today by Firefox              |             |
+| Rhino                      | Maintained by Mozilla Foundation as open source               | Java        |
+| JavaScriptCore (aka Nitro) | Maintained by Apple for Safari                                |
+| Chakra                     | IE, Edge                                                      |             |
+| JerryScript                | IoT                                                           |             |
+| Nashorn                    | open source as part of OpenJDK by Oracle                      |             |
+| KJS                        | for KDE, used by Konqueror                                    |             |
 
 # Rendering Engine
 
@@ -128,28 +128,28 @@ This is how browser renders a web page.
 
 # Event Loop
 
-**Javascript engine** is not working alone. It resides inside a _hosting environment_. Javascript engine doesn't have an innate sense of time. It is the hosting environment that schedules code snippets to run by adding them to **event loop**. Javascript engine simply executes whatever snippets of code is given to it. If the file contains only a programs which are meant to be run sequentially, they are executed in a single stretch. But, if the program is met with asynchronous functions, Javascript engine executes those functions and ask host environment to put callback into the event loop queue once response data needed by the callback function is ready.
+**JavaScript engine** is not working alone. It resides inside a _hosting environment_. JavaScript engine doesn't have an innate sense of time. It is the hosting environment that schedules code snippets to run by adding them to **event loop**. JavaScript engine simply executes whatever snippets of code is given to it. If the file contains only a programs which are meant to be run sequentially, they are executed in a single stretch. But, if the program is met with asynchronous functions, JavaScript engine executes those functions and ask host environment to put callback into the event loop queue once response data needed by the callback function is ready.
 
-**Eg 1**: When a `setTimeout` function is processed, Javascript engine executes that code, and handover callback function to the hosting environment which keeps it aside for the configured period of timeout, and then pushes the callback of setTimeout function into the event loop.
+**Eg 1**: When a `setTimeout` function is processed, JavaScript engine executes that code, and handover callback function to the hosting environment which keeps it aside for the configured period of timeout, and then pushes the callback of setTimeout function into the event loop.
 
-**Eg 2**: When an Ajax function is run, Javascript engine would execute the function and realize that it is demanding a callback when there is data. So, it asks the hosting environment to invoke the callback when there is response coming back from the Ajax request. Once there is data, hosting environment would put that callback function into event loop - which is executed by Javascript engine. So, the asynchronous nature of Javascript was achieved with the help of hosting environment until ES6. Then, **Promise** arrived, for which there is a nuanced behaviour with the introduction of **Job queue**.
+**Eg 2**: When an Ajax function is run, JavaScript engine would execute the function and realize that it is demanding a callback when there is data. So, it asks the hosting environment to invoke the callback when there is response coming back from the Ajax request. Once there is data, hosting environment would put that callback function into event loop - which is executed by JavaScript engine. So, the asynchronous nature of JavaScript was achieved with the help of hosting environment until ES6. Then, **Promise** arrived, for which there is a nuanced behaviour with the introduction of **Job queue**.
 
-You can assume the way Javascript engine works in the event loop is similar to the way human brain works. Human's aren't capable fo multi-tasking. All what a human brain does at the forefront of minds is to simply do context-switching.
+You can assume the way JavaScript engine works in the event loop is similar to the way human brain works. Human's aren't capable fo multi-tasking. All what a human brain does at the forefront of minds is to simply do context-switching.
 
 # Job Queue
 Each iteration of *event loop* is called a *tick*, where the next item to execute as present in top of the even loop queue is pulled into execution. When you have a callback function ready for execution (from ajax or setTimeout) it is put into the end of this event loop queue. But, if you use **ES6 Promise, it helps to put callback functions into the end of current tick itself**. You can thus put more items into this queue forming a special *Job queue* which is guaranteed to execute after current tick and before picking up next item in the event loop. But, if you continuously add items into the Job queue then you end up with same situation like an infinite loop preventing next item in event loop to be executed.
 
 # Asynchronous execution
-You can create async in your program using **callback**, **promise** & **web workers**. EventHandlers, AJAX handlers are common built-in examples of async in Javascript. Even though callback brings asynchrony to Javascript, it is still single threaded. Web workers are used to achieve async in multi-threaded execution environment.
+You can create async in your program using **callback**, **promise** & **web workers**. EventHandlers, AJAX handlers are common built-in examples of async in JavaScript. Even though callback brings asynchrony to JavaScript, it is still single threaded. Web workers are used to achieve async in multi-threaded execution environment.
 
 ## 1. Callback
 
 When there are a couple of ajax calls waiting to operate on a shared data, then both competes to reach first in performing callback function. This is a special condition called *race condition*.
 
-In Javascript also there is **non deterministic ordering of functions**. In order to prevent race condition and to
+In JavaScript also there is **non deterministic ordering of functions**. In order to prevent race condition and to
 bring ordering of callbacks, it is necessary to explicitly coordinate
 callbacks. Here are a few examples on how to achieve coordination on
-concurrent processes in javascript.
+concurrent processes in JavaScript.
 
 **A case of non deterministic result**
 
@@ -266,7 +266,7 @@ job(function () {
 Instead of leaving the life of a callback invocation into the hands of asynchronous API (eg: ajax 3rd party API), it is quite anticipated to have a mechanism to understand when the asynchronous API's work is finished. This is what a Promise offers us. Promise let us to sequentially think and work based on the _future value_ now itself.
 
 ### Promise examples 
-```Javascript
+```JavaScript
 /* eslint-disable prefer-promise-reject-errors */
 
 // 1. 'simple resolve --------------------------------------------------------';
@@ -339,26 +339,26 @@ Promise.race([p1, p2]).then(
 );
 ```
 # Performance
-Javascript doesn't have multi-threading feature, but for performance sake if there was a possibility to run a piece of program in parallell which doesn't need to share resource with main program, that would be pretty useful. HTML5 realized this opportunity and introduced _Web Workers_. 
+JavaScript doesn't have multi-threading feature, but for performance sake if there was a possibility to run a piece of program in parallell which doesn't need to share resource with main program, that would be pretty useful. HTML5 realized this opportunity and introduced _Web Workers_. 
 
 ## Web Workers
 
 Web workers are way to achieve async in must-threaded execution
-environment. Web workers isn't a feature of Javascript and also that
-Javascript is not multi-threaded. But, browser provides web worker so
-that you can achieve multi-threading capability to Javascript by
+environment. Web workers isn't a feature of JavaScript and also that
+JavaScript is not multi-threaded. But, browser provides web worker so
+that you can achieve multi-threading capability to JavaScript by
 leveraging it. Normally, there is only a single thread to perform both
-the DOM rendering and all other Javascript code execution in a page.
+the DOM rendering and all other JavaScript code execution in a page.
 But, when you introduce web worker you can use it to perform all the
-Non-DOM javascript code execution in a separate thread to work in
+Non-DOM JavaScript code execution in a separate thread to work in
 parallel and later interact with the main thread via postMesage. 
 
-A worker thread is a feature provided by hosting environment (browser), its not part of Javascript because there is no multi-threading in Javascript. 
+A worker thread is a feature provided by hosting environment (browser), its not part of JavaScript because there is no multi-threading in JavaScript. 
 
 ### Dedicated worker
-The worker threads are like a separate browser instance with separate Javascript engine and works on a separate process as compared to the main program. You can create a dedicated worker from main program or from another worker as follows:
+The worker threads are like a separate browser instance with separate JavaScript engine and works on a separate process as compared to the main program. You can create a dedicated worker from main program or from another worker as follows:
 
-```Javascript
+```JavaScript
 const w1 = new Workder('path.tofile.js'); // also accepts binary blob of JS file instead of file itself.
 w1.addEventListener('message',(data)=>{
     console.log(data);
@@ -378,19 +378,19 @@ New age workers are efficient to simply change ownership of data instead of copy
 If an app/page using worker is opened in multiple tabs of browser, it causes duplication of workers, which is performance bound. This can be fixed using _Shared Workers_.
 
 ### Shared worker
-A shared worker can operate with several source/target programs in shared state using a single worker. To identify browser tab/instance of page is facilitated using _ports_. When you create a worker from a tab to the Javascript file/blob, Shared worker is instantiated and connects to that tab via a port. Similarly, any other tabs will connect with different ports to the same shared worker.
+A shared worker can operate with several source/target programs in shared state using a single worker. To identify browser tab/instance of page is facilitated using _ports_. When you create a worker from a tab to the JavaScript file/blob, Shared worker is instantiated and connects to that tab via a port. Similarly, any other tabs will connect with different ports to the same shared worker.
 
 
 - While you log data to console for debugging purpose, it may occur that data logged via `console.log(data)` is not showing correct value as expected. This is because, as it is an I/O bound operation, browser tends to run it in the background asynchronously, hence logging actually works at a later point of time, and by then the logged values might have already been changed. Better alternatives are :
   - use breakpoints 
   - save snapshots of objects by using `JSON.stringify(data)`
 
-- Javascript doesn't have multi-threading concept. Hence, the execution of a code snippet follows the rule of **run to completion** except for ES6 generators.
+- JavaScript doesn't have multi-threading concept. Hence, the execution of a code snippet follows the rule of **run to completion** except for ES6 generators.
 
 
 # Interesting Reads
 
-1.  https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db 
+1.  https://itnext.io/achieving-parallelism-in-JavaScript-using-web-workers-8f921f2d26db 
     (A great article on web workers)
 2.  https://www.joji.me/en-us/blog/performance-issue-of-using-massive-transferable-objects-in-web-worker 
     (Transfer speed of large data between web worker and main thread)
@@ -402,10 +402,10 @@ A shared worker can operate with several source/target programs in shared state 
     (Using web workers)
 6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers
     (APIs available in the web workers)
-7.  https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf
+7.  https://blog.sessionstack.com/how-does-JavaScript-actually-work-part-1-b0bacc073cf
 8.  [JavaScript's Call Stack, Callback Queue, and Event Loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 9.  [Loupe tool for live demo](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
-10. [Very detailed explanation on event loop, callback queue and micro task queue](https://www.zeolearn.com/magazine/javascript-how-is-callback-execution-strategy-for-promises-different-than-dom-events-callback)
-11. [Overview of Javascript engine, runtime and call stack ](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
-12. [Excellent example on making blocking infinite recursion to cool infinite non blocking recursion](https://stackoverflow.com/questions/39459236/understanding-event-queue-and-call-stack-in-javascript)
+10. [Very detailed explanation on event loop, callback queue and micro task queue](https://www.zeolearn.com/magazine/JavaScript-how-is-callback-execution-strategy-for-promises-different-than-dom-events-callback)
+11. [Overview of JavaScript engine, runtime and call stack ](https://blog.sessionstack.com/how-does-JavaScript-actually-work-part-1-b0bacc073cf)
+12. [Excellent example on making blocking infinite recursion to cool infinite non blocking recursion](https://stackoverflow.com/questions/39459236/understanding-event-queue-and-call-stack-in-JavaScript)
   

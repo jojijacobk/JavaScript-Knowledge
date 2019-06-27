@@ -1,18 +1,18 @@
 
-   * [Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#objects)
-      * [Built in objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#built-in-objects)
-      * [Primitive literals](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#primitive-literals)
-      * [Contents of Object](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#contents-of-object)
-      * [Arrays](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#arrays)
-      * [Duplicating Objects](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#duplicating-objects)
-      * [Property Descriptors](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#property-descriptors)
-   * [Types](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#types)
-   * [Function](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#function)
-   * [Inheritance](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#inheritance)
-      * [Mixin](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#mixin)
-         * [Explicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#explicit-mixin)
-         * [Implicit mixin ](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#implicit-mixin)
-      * [Prototypal Inheritance](https://github.com/jojijacobk/About-Javascript/blob/master/Object-&-Prototype.md#prototypal-inheritance)
+   * [Objects](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#objects)
+      * [Built in objects](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#built-in-objects)
+      * [Primitive literals](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#primitive-literals)
+      * [Contents of Object](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#contents-of-object)
+      * [Arrays](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#arrays)
+      * [Duplicating Objects](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#duplicating-objects)
+      * [Property Descriptors](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#property-descriptors)
+   * [Types](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#types)
+   * [Function](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#function)
+   * [Inheritance](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#inheritance)
+      * [Mixin](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#mixin)
+         * [Explicit mixin ](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#explicit-mixin)
+         * [Implicit mixin ](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#implicit-mixin)
+      * [Prototypal Inheritance](https://github.com/jojijacobk/About-JavaScript/blob/master/Object-&-Prototype.md#prototypal-inheritance)
 
 # Objects
 
@@ -113,7 +113,7 @@ is preferred than built in objects.
 
 # Types
 
--   6 Primary Types are there in javascript language   
+-   6 Primary Types are there in JavaScript language   
     -   5 are primitives - string, number, boolean, null, undefined
         -   null - isn't object, its a bug
     -   6th is  Object
@@ -124,7 +124,7 @@ is preferred than built in objects.
 
 **Number**
 
--   In javascript, numbers are represented using Number data type. 
+-   In JavaScript, numbers are represented using Number data type. 
 -   A number is 64 bit floating point representation of a number.
     -   1 bit for sign
     -   11 bits for exponents
@@ -139,7 +139,7 @@ is preferred than built in objects.
     To fix this issue you can use `.toFixed()`  
     like `(0.2+0.1).toFixed(1)`  
 -   The highest possible integer value that can be handled by a Number
-    type in javascript is `Number.MAX_SAFE_INTEGER`. Similarly,
+    type in JavaScript is `Number.MAX_SAFE_INTEGER`. Similarly,
     `Number.MIN_SAFE_INTEGER`
 -   If you are going to work on high precision math, make use of some
     libraries which purely serve this purpose.
@@ -160,26 +160,26 @@ is preferred than built in objects.
                 
 # Function
 
--   In javascript functions can have properties. So you can assign
+-   In JavaScript functions can have properties. So you can assign
     properties to a function just by referring
     **`<functionName>.<propertyName>`**
--   Every javascript functions holds a special property called
+-   Every JavaScript functions holds a special property called
     **`<functionName>`**.**`prototype`** which is used to set
     the **`[[Prototype]]` of instance objects** created from that
     function by invoking function with `new` operator. So, whatever
     properties added to the prototype of a function would eventually
     appear in the \[\[Prototype\]\] of instance objects.
--   In javascript there is no such thing like methods you can see in a
+-   In JavaScript there is no such thing like methods you can see in a
     class of OO language. Instead **functions inside an object are also
     assigned to properties** similar to how properties do store values. 
--   As the functions in a javascript object is essentially a property,
+-   As the functions in a JavaScript object is essentially a property,
     it exhibits the **property shadowing in case of functions too.**
 -   But, reference to `this operator` inside a function of an object
     would only represents the context of the last object in the
     prototypal chain even if the function is inherited from some deep
     inner level prototype.
 
-**Different levels of properties in a javascript function**
+**Different levels of properties in a JavaScript function**
 
 ``` js
 function doSomething() {
@@ -245,10 +245,10 @@ Foo.call(o);
 
 # Inheritance
 
--   Javascript doesn't offer Class based OO similar to other OO
+-   JavaScript doesn't offer Class based OO similar to other OO
     languages. Even the class syntax introduced in ES6 is just a
     syntactic sugar. 
--   Javascript do only have objects (and no classes per say).
+-   JavaScript do only have objects (and no classes per say).
 
 ## Mixin
 
@@ -304,19 +304,19 @@ directly on that object, there are 3 scenarios reflecting how it works:
     invoked.
 
 
-|Class oriented OO languages (PHP, Java etc)|Javascript|
-|----------|-------|
-|When you make an instance (lets say instance "a" from constructor "Foo"), <br/> `var a = new Foo();` <br/> object `a` copies characteristics of "Foo" into "a".| Every objects are linked to its `[[Prototype]]` object. So, when you make an instance (lets say instance "a" from constructor "Foo"), <br/> `var a = new Foo();` <br/> object `a` is not actually copying characteristics of "Foo" into "a" like in other OO languages. Instead instance "a" is `[[Prototype]] linked` to Foo.|
-| So if 10 instance objects are made, 10 `copies` of FOO are made.|So if 10 instance objects are made, `10 [[Prototype]] linkages` to this common FOO object are made.|
+| Class oriented OO languages (PHP, Java etc)                                                                                                                     | JavaScript                                                                                                                                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| When you make an instance (lets say instance "a" from constructor "Foo"), <br/> `var a = new Foo();` <br/> object `a` copies characteristics of "Foo" into "a". | Every objects are linked to its `[[Prototype]]` object. So, when you make an instance (lets say instance "a" from constructor "Foo"), <br/> `var a = new Foo();` <br/> object `a` is not actually copying characteristics of "Foo" into "a" like in other OO languages. Instead instance "a" is `[[Prototype]] linked` to Foo. |
+| So if 10 instance objects are made, 10 `copies` of FOO are made.                                                                                                | So if 10 instance objects are made, `10 [[Prototype]] linkages` to this common FOO object are made.                                                                                                                                                                                                                            |
 
 -   `__proto__` is non standard way of getting/setting prototype of an object |
 -   `Object.create(null) - best for dictionary```
 -   Foo.prototype.isPrototypeOf(new Bar())
 
--   Inheritance in Javascript works through prototype. By convention the
+-   Inheritance in JavaScript works through prototype. By convention the
     prototype of `someObject` is designated by notation
     `someObject.[[Prototype]]`.
--   Every objects in Javascript except the top most object (
+-   Every objects in JavaScript except the top most object (
     `The Object` ) in prototype chain holds a private property
     **`__proto__`** which links to that object's own prototype object. 
 -   Though **`someObject.[[Prototype]]`** is the standard way of

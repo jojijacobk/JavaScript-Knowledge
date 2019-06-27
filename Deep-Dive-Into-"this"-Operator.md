@@ -1,4 +1,4 @@
-  * [What is this in Javascript?](Deep-Dive-Into-"this"-Operator.md#what-is-this-in-javascript)
+  * [What is this in JavaScript?](Deep-Dive-Into-"this"-Operator.md#what-is-this-in-JavaScript)
       * [Common misconceptions about <em>this</em>](Deep-Dive-Into-"this"-Operator.md#common-misconceptions-about-this)
       * [What are the possible alternatives to avoid usage of <em>this</em>](Deep-Dive-Into-"this"-Operator.md#what-are-the-possible-alternatives-to-avoid-usage-of-this)
       * [How to embrace usage of this](Deep-Dive-Into-"this"-Operator.md#how-to-embrace-usage-of-this)
@@ -21,10 +21,10 @@
          * [Ignored this](Deep-Dive-Into-"this"-Operator.md#ignored-this)
          * [Safer this](Deep-Dive-Into-"this"-Operator.md#safer-this)
 
-# What is `this` in Javascript?
+# What is `this` in JavaScript?
 
 *`this`* keyword is a special identifier which is automatically defined
-in the scope of every javascript functions. `this` is not an author time
+in the scope of every JavaScript functions. `this` is not an author time
 binding but a run time binding depending on the call site from where the
 function is being invoked. 
 
@@ -48,7 +48,7 @@ You have different workarounds from using *`this`* at all.
 
 ## How to embrace usage of `this`
 
-`this` usage makes javascript functions cleaner APIs. You could embrace
+`this` usage makes JavaScript functions cleaner APIs. You could embrace
 its usage by:
 
 1.  learn how to properly use `this`
