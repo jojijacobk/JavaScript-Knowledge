@@ -126,3 +126,28 @@ body[data-professional-hobby] {
 ## Modifying DOM
 
 <img src="attachments/modify document.png" width="750px"> <br/>
+
+## Modify style using JavaScript
+
+- `elem.className`
+- `elem.classList`
+  <img src="attachments/style class.png" width="675px"> <br>
+- `elem.style.{camel cased css property}`
+- `elem.style.cssText` to rewrite css entirely
+- `getComputedStyle(elem, [pseudo])`
+
+## Geometric properties of an element
+
+&nbsp;&nbsp;<img src="attachments/geometric properties.png" width="875px"> <br>
+
+- `offsetLeft` and `offsetTop`
+  <br><img src="attachments/offset left.png" width="550px"> <br>
+
+- `offsetWidth` and `offsetHeight`
+  <br><img src="attachments/offset width.png" width="600px"> <br>
+
+- `clientWidth` and `clientHeight`
+  <br><img src="attachments/client width.png" width="600px"> <br>
+
+- `scrollWidth` and `scrollHeight`
+  <br><img src="attachments/scroll width.png" width="600px"> <br>
