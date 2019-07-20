@@ -150,4 +150,4 @@ body[data-professional-hobby] {
   <br><img src="attachments/client width.png" width="600px"> <br>
 
 - `scrollWidth` and `scrollHeight`
-  <br><img src="attachments/scroll width.png" width="600px"> <br>
+  <br><img src="attachments/scroll width.png" width="550px"> <br>
