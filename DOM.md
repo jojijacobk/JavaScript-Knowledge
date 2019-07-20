@@ -2,7 +2,7 @@
 
 <img src="attachments/javascript in browser host environment.png" width="600px"> <br/>
 
-- DOM is not only for browsers. A server program can walk through DOM.
+DOM is not only for browsers. A server program can walk through DOM.
 
 # Document Object Model
 
@@ -33,7 +33,7 @@
 | <img src="attachments/Traversal through DOM nodes.png" width="500px">     | <img src="attachments/Traversal through DOM elements.png" width="600px"> |
 
 **Note:**
-`document.body.firstChild` may not be your first tag element inside HTML body. It could be a whitespace `text` node if your HTML is formatted with spaces like a normal page. But, `document.body.firstElementChild` is always gonna be the first tag element.
+`document.body.firstChild` may not be your first tag element inside HTML body. It could be a whitespace `text` node if your HTML is formatted with spaces like a normal page. But, `document.body.firstElementChild` is always gonna be the first **tag** element.
 
 <img src="attachments/difference between node and element 2.png" width="300px"> <br/>
 <img src="attachments/difference between node and element 1.png" width="500px"> <br/>
@@ -71,7 +71,7 @@ whereas `console.dir(element)` to display the **object** representing that eleme
 ## Node
 
 - `nodeType`
-  <img src="attachments/nodeType.png" width="500px"> <br/>
+  <br> <img src="attachments/nodeType.png" width="500px"> <br>
 - `nodeValue` / `data` - is used to get content of a nodes (other than element type)
 - `nodeName` - is used to get the name of "any nodes" (including element nodes)
 - `tagName` - is used to get only the name of "element nodes"
