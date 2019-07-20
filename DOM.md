@@ -123,7 +123,7 @@ body[data-professional-hobby] {
 }
 ```
 
-## Modifying DOM
+## Modify DOM
 
 <img src="attachments/modify document.png" width="750px"> <br/>
 
