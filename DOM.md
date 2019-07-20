@@ -71,7 +71,7 @@ whereas `console.dir(element)` to display the **object** representing that eleme
 ## Node
 
 - `nodeType`
-  <br> <img src="attachments/nodeType.png" width="500px"> <br>
+  <br><br> <img src="attachments/nodeType.png" width="500px"> <br>
 - `nodeValue` / `data` - is used to get content of a nodes (other than element type)
 - `nodeName` - is used to get the name of "any nodes" (including element nodes)
 - `tagName` - is used to get only the name of "element nodes"
