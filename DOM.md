@@ -136,7 +136,7 @@ body[data-professional-hobby] {
 - `elem.style.cssText` to rewrite css entirely
 - `getComputedStyle(elem, [pseudo])`
 
-## Geometric properties of an element
+## Geometric properties pertaining to an element
 
 &nbsp;&nbsp;<img src="attachments/geometric properties.png" width="875px"> <br>
 
@@ -151,3 +151,7 @@ body[data-professional-hobby] {
 
 - `scrollWidth` and `scrollHeight`
   <br><img src="attachments/scroll width.png" width="550px"> <br>
+
+## Geometric properties pertaining to the document
+
+<img src="attachments/window geometry.png" width="790px"> <br>
