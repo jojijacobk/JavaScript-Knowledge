@@ -1,3 +1,17 @@
+- [Browser environment](DOM.md#browser-environment)
+- [Document Object Model](DOM.md#document-object-model)
+  - [DOM Tree](DOM.md#dom-tree)
+  - [DOM Traversal](DOM.md#dom-traversal)
+  - [Search inside DOM](DOM.md#search-inside-dom)
+  - [DOM node classes](DOM.md#dom-node-classes)
+  - [Node](DOM.md#node)
+  - [Attributes](DOM.md#attributes)
+  - [Custom Attributes](DOM.md#custom-attributes)
+  - [Modify DOM](DOM.md#modify-dom)
+  - [Modify style using JavaScript](DOM.md#modify-style-using-javascript)
+  - [Geometric properties pertaining to an element](DOM.md#geometric-properties-pertaining-to-an-element)
+  - [Geometric properties pertaining to the document](DOM.md#geometric-properties-pertaining-to-the-document)
+
 # Browser environment
 
 <img src="attachments/javascript in browser host environment.png" width="600px"> <br/>
