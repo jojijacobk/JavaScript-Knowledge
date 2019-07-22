@@ -156,4 +156,4 @@ body[data-professional-hobby] {
 
 <img src="attachments/window geometry.png" width="790px"> <br>
 <img src="attachments/boundingRect.png" width="740px"> <br>
-<img src="attachments/elementFromPoint.png" width="850px"> <br>
+<img src="attachments/elementFromPoint.png" width="880px"> <br>
