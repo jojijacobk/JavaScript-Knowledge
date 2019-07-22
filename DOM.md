@@ -155,3 +155,5 @@ body[data-professional-hobby] {
 ## Geometric properties pertaining to the document
 
 <img src="attachments/window geometry.png" width="790px"> <br>
+<img src="attachments/boundingRect.png" width="740px"> <br>
+<img src="attachments/elementFromPoint.png" width="830px"> <br>
