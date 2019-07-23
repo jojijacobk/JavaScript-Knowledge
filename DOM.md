@@ -157,6 +157,9 @@ body[data-professional-hobby] {
 - `offsetLeft` and `offsetTop`
   <br><img src="attachments/offset left.png" width="550px"> <br>
 
+- `clientLeft` and `clientTop`
+  <br><img src="attachments/clientleft1.png" width="353px"> <img src="attachments/clientleft2.png" width="370px"><br>
+
 - `offsetWidth` and `offsetHeight`
   <br><img src="attachments/offset width.png" width="600px"> <br>
 
@@ -164,7 +167,10 @@ body[data-professional-hobby] {
   <br><img src="attachments/client width.png" width="600px"> <br>
 
 - `scrollWidth` and `scrollHeight`
-  <br><img src="attachments/scroll width.png" width="550px"> <br>
+  <br><img src="attachments/scroll width.png" width="500px"> <br>
+
+- Complete geometry of an element
+  <br><img src="attachments/element full geometry.png" width="750px"> <br>
 
 ## Geometric properties pertaining to the document
 
