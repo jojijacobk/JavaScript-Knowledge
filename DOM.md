@@ -158,7 +158,7 @@ body[data-professional-hobby] {
   <br><img src="attachments/offset left.png" width="550px"> <br>
 
 - `clientLeft` and `clientTop`
-  <br><img src="attachments/clientleft1.png" width="353px"> <img src="attachments/clientleft2.png" width="370px"><br>
+  <br><img src="attachments/clientLeft1.png" width="353px"> <img src="attachments/clientLeft2.png" width="370px"><br>
 
 - `offsetWidth` and `offsetHeight`
   <br><img src="attachments/offset width.png" width="600px"> <br>
