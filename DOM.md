@@ -224,7 +224,7 @@ Create a new Range object
 
 `let range = new Range();`
 
-**Range object properties**
+Range object properties:
 
 - `range.startContainer`
 - `range.startOffset`
@@ -232,9 +232,7 @@ Create a new Range object
 - `range.endOffset`
 - `range.commonAncestorContainer`
 
-**Range object methods**
-
-Range methods to select nodes:
+Range object methods to select nodes:
 
 - `range.setStart(node.offset)`
 - `range.setEnd(node,offset)`
@@ -244,7 +242,7 @@ Range methods to select nodes:
 - `range.selectNodeContents(node)`
 - `range.cloneRange()`
 
-Range methods to manipulate nodes:
+Range object methods to manipulate nodes:
 
 - `range.deleteContents()`
 - `range.extractContents()`
@@ -255,16 +253,30 @@ Range methods to manipulate nodes:
 
 ### Selection
 
-**Selection Events**
+Selection events
 - `selectstart`
 - `selectionchange`
 
-**Selection methods to operate on Range**
+Selection methods to operate on Range
 
 - `selection.getRangeAt(index)`
 - `selection.addRange(range)`
 - `selection.removeRange(range)`
 - `selection.removeAllRanges()`
+
+Form input selection properties:
+
+- `input.selectionStart`
+- `input.selectionEnd`
+
+Form input selection methods:
+
+- `input.select()`
+- `input.setRangeText(replacement)`
+
+Form input selection events:
+
+- `select`
 
 Example to add range to document selection;
 
