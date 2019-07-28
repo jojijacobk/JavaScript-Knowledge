@@ -1,16 +1,17 @@
-- [Browser environment](DOM.md#browser-environment)
-- [Document Object Model](DOM.md#document-object-model)
-  - [DOM Tree](DOM.md#dom-tree)
-  - [DOM Traversal](DOM.md#dom-traversal)
-  - [Search inside DOM](DOM.md#search-inside-dom)
-  - [DOM node classes](DOM.md#dom-node-classes)
-  - [Node](DOM.md#node)
-  - [Attributes](DOM.md#attributes)
-  - [Custom Attributes](DOM.md#custom-attributes)
-  - [Modify DOM](DOM.md#modify-dom)
-  - [Modify style using JavaScript](DOM.md#modify-style-using-javascript)
-  - [Geometric properties pertaining to an element](DOM.md#geometric-properties-pertaining-to-an-element)
-  - [Geometric properties pertaining to the document](DOM.md#geometric-properties-pertaining-to-the-document)
+* [Browser environment](DOM.md#browser-environment)
+* [Document Object Model](DOM.md#document-object-model)
+    * [DOM Tree](DOM.md#dom-tree)
+    * [DOM Traversal](DOM.md#dom-traversal)
+    * [Search inside DOM](DOM.md#search-inside-dom)
+    * [DOM node classes](DOM.md#dom-node-classes)
+    * [Node](DOM.md#node)
+    * [Attributes](DOM.md#attributes)
+    * [Custom Attributes](DOM.md#custom-attributes)
+    * [Modify DOM](DOM.md#modify-dom)
+    * [Modify style using JavaScript](DOM.md#modify-style-using-javascript)
+    * [Geometric properties pertaining to an element](DOM.md#geometric-properties-pertaining-to-an-element)
+    * [Geometric properties pertaining to the document](DOM.md#geometric-properties-pertaining-to-the-document)
+    * [Document and resource loading](DOM.md#document-and-resource-loading)
 
 # Browser environment
 
@@ -186,7 +187,7 @@ The events associated with page load are :
 - `beforeunload`
 - `unload` . At this time, you can send any last moment statistics to server by `navigator.sendBeacon(url,data)`.
 
-### `document.readyState`
+**`document.readyState`**
 
 There are 3 ready states which indicates different stages of page load. 
 - `loading`
@@ -195,7 +196,7 @@ There are 3 ready states which indicates different stages of page load.
 
 Yuo can listen to these document state changes from event `readystatechange`.
 
-### Load scripts in `defer` & `async` mode
+**Load scripts in `defer` & `async` mode**
 
 When HTML is followed by `<script>` tag, script gets access to the DOM rendered from HTML above. But, if a `<script>` is before HTML, then it doesn't get visibility to those HTML. Also, browser would wait for the `<script>` to load and run before parsing rest of HTML.
 
@@ -206,7 +207,7 @@ To improve this, it is better to write `<script>` tags at the end of document. B
 
 When you dynaically create `<script>` using JavaScript and insert into document, it works like an `async` script. To change it into a regular script, use property `<script-element>.async = false`.
 
-### Track loading of external resources
+**Track loading of external resources**
 Any external loading of resources - `<script src="">` or `<img src="">` or `<iframe>` can be tracked using two events :
 - `load` - fires on that element when loading is completed successfully
 - `error` - fires on that element when loading fails. An exception to this is `<iframe>` which fires only `load` even if it fails.
