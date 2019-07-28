@@ -12,6 +12,9 @@
     * [Geometric properties pertaining to an element](DOM.md#geometric-properties-pertaining-to-an-element)
     * [Geometric properties pertaining to the document](DOM.md#geometric-properties-pertaining-to-the-document)
     * [Document and resource loading](DOM.md#document-and-resource-loading)
+    * [Range and Selection](DOM.md#range-and-selection)
+        * [Range](DOM.md#range)
+        * [Selection](DOM.md#selection)
 
 # Browser environment
 
@@ -212,3 +215,65 @@ Any external loading of resources - `<script src="">` or `<img src="">` or `<ifr
 - `load` - fires on that element when loading is completed successfully
 - `error` - fires on that element when loading fails. An exception to this is `<iframe>` which fires only `load` even if it fails.
 You can use `window.onerror` to catch any JavaScript errors in page.
+
+## Range and Selection
+
+### Range
+
+Create a new Range object
+
+    `let range = new Range();`
+
+**Range object properties**
+
+- `range.startContainer`
+- `range.startOffset`
+- `range.endContainer`
+- `range.endOffset`
+- `range.commonAncestorContainer`
+
+**Range object methods**
+
+Range methods to select nodes:
+
+- `range.setStart(node.offset)`
+- `range.setEnd(node,offset)`
+- `range.setStartBefore(node)`
+- `range.setEndBefore(node)`
+- `range.selectNode(node)`
+- `range.selectNodeContents(node)`
+- `range.cloneRange()`
+
+Range methods to manipulate nodes:
+
+- `range.deleteContents()`
+- `range.extractContents()`
+- `range.cloneContents()`
+- `range.insertNode(node)`
+- `range.surroundContents(node)`
+- `range.collapse(toStart)`
+
+### Selection
+
+**Selection Events**
+- `selectstart`
+- `selectionchange`
+
+**Selection methods to operate on Range**
+
+- `selection.getRangeAt(index)`
+- `selection.addRange(range)`
+- `selection.removeRange(range)`
+- `selection.removeAllRanges()`
+
+Example to add range to document selection;
+
+```javascript
+let range = new Range();
+range.setStart(node,offset);
+range.setEnd(node,offset);
+
+let selection = document.getSelection();
+selection.removeAllRanges()
+selection.addRange(range);
+```    
