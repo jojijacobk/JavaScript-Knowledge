@@ -178,3 +178,36 @@ body[data-professional-hobby] {
 <img src="attachments/boundingRect.png" width="740px"> <br>
 <img src="attachments/getBoundingClientRect.png" width="800px"> <br>
 <img src="attachments/elementFromPoint.png" width="880px"> <br>
+
+## Document and resource loading
+The events associated with page load are :
+- `DOMContentLoaded` - this event is fired when HTML ad JavaScript is loaded, DOM is ready, and all JavaScript has finished execution. This event can ignore the following modes of script tags  : `<script type="module">` or `async`. At this time both images `<img>` and CSS are not loaded.
+- `load` 
+- `beforeunload`
+- `unload` . At this time, you can send any last moment statistics to server by `navigator.sendBeacon(url,data)`.
+
+### `document.readyState`
+
+There are 3 ready states which indicates different stages of page load. 
+- `loading`
+- `interactive` is at the same time as `DOMContentLoaded` event fires
+- `complete` is at the same time as `load` event fires
+
+Yuo can listen to these document state changes from event `readystatechange`.
+
+### Load scripts in `defer` & `async` mode
+
+When HTML is followed by `<script>` tag, script gets access to the DOM rendered from HTML above. But, if a `<script>` is before HTML, then it doesn't get visibility to those HTML. Also, browser would wait for the `<script>` to load and run before parsing rest of HTML.
+
+To improve this, it is better to write `<script>` tags at the end of document. But, there are even better strategies:
+
+1. `defer` attribute on `<script>` tag lets browser to load that script only after all the HTML has been loaded already. But, this works only if there is an `src` attribute to load JavaScript externally. `DOMContentLoaded` event will fire only after `defer` scripts are also loaded.
+2. `async` attribute on `<script>` tag works completely independent. It may load even before HTML is loaded, or may load later. So, use this approach only for DOM independent scripts such loading advertisement, google analytics etc. `DOMContentLoaded` event doesn't care about `async` scripts.
+
+When you dynaically create `<script>` using JavaScript and insert into document, it works like an `async` script. To change it into a regular script, use property `<script-element>.async = false`.
+
+### Track loading of external resources
+Any external loading of resources - `<script src="">` or `<img src="">` or `<iframe>` can be tracked using two events :
+- `load` - fires on that element when loading is completed successfully
+- `error` - fires on that element when loading fails. An exception to this is `<iframe>` which fires only `load` even if it fails.
+You can use `window.onerror` to catch any JavaScript errors in page.
