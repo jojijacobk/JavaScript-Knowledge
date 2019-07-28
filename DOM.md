@@ -222,7 +222,7 @@ You can use `window.onerror` to catch any JavaScript errors in page.
 
 Create a new Range object
 
-    `let range = new Range();`
+`let range = new Range();`
 
 **Range object properties**
 
