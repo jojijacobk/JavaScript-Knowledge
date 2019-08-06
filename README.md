@@ -1,5 +1,6 @@
 - [About JavaScript](About-JavaScript.md)
 - [DOM](DOM.md)
+- [Inheritance](Inheritance.md)
 - [Deep Dive Into `this` Operator](Deep-Dive-Into-"this"-Operator.md)
 - [Object & Prototype](Object-%26-Prototype.md)
 - [Offline](Offline.md)
