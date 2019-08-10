@@ -15,6 +15,7 @@
     * [Range and Selection](DOM.md#range-and-selection)
         * [Range](DOM.md#range)
         * [Selection](DOM.md#selection)
+* [References](DOM.md#references)
 
 # Browser environment
 
@@ -289,3 +290,5 @@ let selection = document.getSelection();
 selection.removeAllRanges()
 selection.addRange(range);
 ```    
+# References
+- [List of all possible CSS selectors](https://drafts.csswg.org/selectors/#overview)
