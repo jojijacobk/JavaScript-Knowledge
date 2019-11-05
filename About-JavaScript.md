@@ -408,4 +408,5 @@ A shared worker can operate with several source/target programs in shared state 
 10. [Very detailed explanation on event loop, callback queue and micro task queue](https://www.zeolearn.com/magazine/JavaScript-how-is-callback-execution-strategy-for-promises-different-than-dom-events-callback)
 11. [Overview of JavaScript engine, runtime and call stack ](https://blog.sessionstack.com/how-does-JavaScript-actually-work-part-1-b0bacc073cf)
 12. [Excellent example on making blocking infinite recursion to cool infinite non blocking recursion](https://stackoverflow.com/questions/39459236/understanding-event-queue-and-call-stack-in-JavaScript)
+13. [Kyle Simpson's series of JavaScript books](https://github.com/getify/You-Dont-Know-JS)
   
