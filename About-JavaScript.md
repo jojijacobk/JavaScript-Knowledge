@@ -398,7 +398,7 @@ A shared worker can operate with several source/target programs in shared state 
     (Things you can do with a web worker)
 4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2
     (Download files using web worker)
-5.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Using\_web\_workers
+5.  https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
     (Using web workers)
 6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers
     (APIs available in the web workers)
