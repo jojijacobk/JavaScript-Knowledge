@@ -394,7 +394,7 @@ A shared worker can operate with several source/target programs in shared state 
     (A great article on web workers)
 2.  https://www.joji.me/en-us/blog/performance-issue-of-using-massive-transferable-objects-in-web-worker 
     (Transfer speed of large data between web worker and main thread)
-3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker 
+3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker
     (Things you can do with a web worker)
 4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2
     (Download files using web worker)
