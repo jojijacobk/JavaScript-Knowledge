@@ -57,7 +57,7 @@ its usage by:
 
 ## How to determine the context of *`this`* by inspecting **call site**
 
-When you see *this *in a function, in order to understand to what
+When you see *this* in a function, in order to understand to what
 context is *this* related to, you just need to scan through the call
 stack to reach the call site of that function's invocation, and inspect
 for the following 4 rules.
