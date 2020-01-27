@@ -187,9 +187,9 @@ body[data-professional-hobby] {
   4. offsetWidth
   5. offsetHeight
   
-  `client*` is measured from the inner content (contentWidth + padding)
+  `client*` is measured from the inner content (content width + padding)
   
-  1. clientLeft = borderWidth (but in case of arabic, borderWidth + scrollWidth)
+  1. clientLeft = borderWidth (but in case of arabic, borderWidth + scrollbar width)
   2. clientWidth = contentWidth + padding
 
 ## Geometric properties pertaining to the document
