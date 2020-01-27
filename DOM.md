@@ -176,6 +176,17 @@ body[data-professional-hobby] {
 
 - Complete geometry of an element
   <br><img src="attachments/element full geometry.png" width="750px"> <br>
+  
+  **Summary**
+  `offset*` is measured from the borderline of element
+  1. offsetParent
+  2. offsetLeft
+  3. offsetTop
+  4. offsetWidth
+  5. offsetHeight
+  `client*` is measured from the inner content (contentWidth + padding)
+  1. clientLeft = borderWidth (but in case of arabic, borderWidth + scrollWidth)
+  2. clientWidth = contentWidth + padding
 
 ## Geometric properties pertaining to the document
 
