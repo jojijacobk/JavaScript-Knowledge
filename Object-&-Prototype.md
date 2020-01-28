@@ -74,14 +74,17 @@ is preferred than built in objects.
 
 ## Property Descriptors
 
+https://javascript.info/property-descriptors
+
 -   Object.defineProperty
+-   Object.defineProperties
 -   Object.getOwnPropertyDescriptors
--   Immutability
-    -   Object property as constant = Writable false + Configurable false
-    -   Prevent Extensions
-    -   Seal = Prevent Extensions + Configurable false
-    -   Freeze = Prevent Extensions + Writable false
-    -   Deep Freeze = Recursively (Prevent Extensions + Writable false)
+-   Object.preventExtensions
+-   Object.seal
+-   Object.freeze
+-   Object.isExtensible
+-   Object.isSealed
+-   Object.isFrozen
 
 -   Getter & Setter
     -   If you try to access a non existent property in an object, it
