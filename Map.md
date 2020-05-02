@@ -51,7 +51,7 @@ for(let [k,v] of map.entries()) {
 
 }
 
-1. forEach()
+4. forEach()
 map.forEach((value,key,map)=>{
 
 });
