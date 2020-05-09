@@ -57,7 +57,7 @@ Set is similar to Map with the following major changes.
 let set = new Set([iterable]);
 let set = new Set(Object.values(fruits));
 let set = new Set(myArray);
-
+```
 # Map vs Set
 
-<img src="attachments/map_vs_set.png" width="700"/> <br/>
+<img src="attachments/map_vs_set.png" width="1100"/> <br/>
