@@ -1,6 +1,10 @@
+# Array
+clone an array using `slice`
+
 # Map
 ## Difference between Map and Object
-Map is similar to Object but with a few more features.
+Map is similar to Object but with a few more features. Map is similar to associative arrays in PHP.
+
 1. Map can have keys of any type whereas Object can have only string keys. 
   Map can have a string, number, boolean or even an object as a key. But, Object would convert anything into a string as key. So for eg: 
   ```javascript
@@ -24,43 +28,8 @@ Map is similar to Object but with a few more features.
 
 3. Map has `size` property but, Object doesn't have size property
 
-## Map methods
-There are several methods to interact with a Map unlike Object 
 
-```javascript
-let m1 = new Map();
-
-m1.set(key,value);
-m1.get(key)
-m1.delete(key)
-m1.has(key)
-m1.clear()
-m1.count
-```
-## Iterate a map
-```javascript
-1. keys()
-for(let k of map.keys()) {
-
-}
-
-2. values()
-for(let v of map.values()) {
-
-}
-
-3. entries()
-for(let [k,v] of map.entries()) {
-
-}
-
-4. forEach()
-map.forEach((value,key,map)=>{
-
-});
-```
-
-## Convert an object to a map
+## Convert an Object to a Map
 ```javascript
 let fruits = {
     apple:1,
@@ -71,7 +40,7 @@ let fruitsMap = new Map(Object.entries(fruits));
 fruitsMap.get('banana'); // 5
 ```
 
-## Convert a map to an object
+## Convert a Map to an Object
 ```javascript
 let fruitsMap = new Map([['apple',1],['banana',5],['orange',3]]);
 
@@ -83,42 +52,12 @@ Set is similar to Map with the following major changes.
 - A Set has a unique collection of items. Even if you add same value multiple times, set adds that value only once.
 - There is no keys for Set
 
-## Set methods
+## Set
 ```javascript
 let set = new Set([iterable]);
 let set = new Set(Object.values(fruits));
 let set = new Set(myArray);
 
-set.add(item);
-set.has(item);
-set.delete(item);
-set.clear();
-set.count
-```
+# Map vs Set
 
-## Iterate a Set
-```javascript
-1. keys()
-
-// Set doesn't maintain keys. But, for compatibility reasons with Map methods, `set.keys()` would actually return `set.values()` in a Set
-for(let v of map.keys()) {
-
-}
-
-2. values()
-for(let v of map.values()) {
-
-}
-
-3. entries()
-//Set doesn't maintain keys. But, for compatibility reasons with Map methods, `set.entries()` returns [value,value]
-for(let [v,v] of map.entries()) {
-
-}
-
-4. forEach()
-//Set doesn't maintain keys. But, for compatibility reasons with Map methods, `set.forEach()` returns [value,value]
-map.forEach((value,value,map)=>{
-
-});
-```
+<img src="attachments/map_vs_set.png" width="700"/> <br/>
