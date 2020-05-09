@@ -72,5 +72,5 @@ let set = new Set(myArray);
 ```
 # Map vs Set
 
-<img src="attachments/Object_vs_Map_vs_Set.png" width="2000"/> <br/>
+<img src="attachments/Object_vs_Map_vs_Set.png" width="2400"/> <br/>
 
