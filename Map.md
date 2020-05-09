@@ -1,5 +1,17 @@
 # Array
-clone an array using `slice`
+
+Every objects including Arrays are passed by reference
+```javascript
+let A = [1,3,5];
+let B = A;
+A.splice(1,1,10);
+what is B ? // B is also [1,3,5] because assigning arrays works as pass by reference
+
+A.length=0;
+What is B ? // B is empty array [] because array A is []
+
+```
+
 
 # Map
 ## Difference between Map and Object
@@ -60,4 +72,5 @@ let set = new Set(myArray);
 ```
 # Map vs Set
 
-<img src="attachments/map_vs_set.png" width="1100"/> <br/>
+<img src="attachments/Object_vs_Map_vs_Set.png" width="2000"/> <br/>
+
