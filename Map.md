@@ -1,6 +1,7 @@
 # Array
 
-Every objects including Arrays are passed by reference
+In JavaScript, every Objects including Arrays are passed by reference
+
 ```javascript
 let A = [1,3,5];
 let B = A;
@@ -9,68 +10,79 @@ what is B ? // B is also [1,3,5] because assigning arrays works as pass by refer
 
 A.length=0;
 What is B ? // B is empty array [] because array A is []
-
 ```
 
+<img src="attachments/Array_Iterate.png" width="2400"/> <br/>
+<img src="attachments/Array_Delete.png" width="2400"/> <br/>
+<img src="attachments/Array_Transform.png" width="2400"/> <br/>
 
 # Map
+
 ## Difference between Map and Object
+
 Map is similar to Object but with a few more features. Map is similar to associative arrays in PHP.
 
-1. Map can have keys of any type whereas Object can have only string keys. 
-  Map can have a string, number, boolean or even an object as a key. But, Object would convert anything into a string as key. So for eg: 
-  ```javascript
-  //Demonstration of object key for an Object
-  let john={
-      name: 'john',
-      id:1
-  }
+1. Map can have keys of any type whereas Object can have only string keys.
+   Map can have a string, number, boolean or even an object as a key. But, Object would convert anything into a string as key. So for eg:
 
-  let O1 = {};
-  O1[john] = 100; 
-  // the key john would become as {[object Object]: 100}
+```javascript
+//Demonstration of object key for an Object
+let john = {
+  name: 'john',
+  id: 1,
+};
 
-  // Demonstration of object key for a map
-  let map = new Map();
-  map.set(john,100);
-  console.log(map.get(john)); // 100
+let O1 = {};
+O1[john] = 100;
+// the key john would become as {[object Object]: 100}
+
+// Demonstration of object key for a map
+let map = new Map();
+map.set(john, 100);
+console.log(map.get(john)); // 100
 ```
 
 2. Map iterates in the same order as how elements are inserted whereas for objects there is no order.
 
 3. Map has `size` property but, Object doesn't have size property
 
-
 ## Convert an Object to a Map
+
 ```javascript
 let fruits = {
-    apple:1,
-    banana:5,
-    orange:3
+  apple: 1,
+  banana: 5,
+  orange: 3,
 };
 let fruitsMap = new Map(Object.entries(fruits));
 fruitsMap.get('banana'); // 5
 ```
 
 ## Convert a Map to an Object
+
 ```javascript
-let fruitsMap = new Map([['apple',1],['banana',5],['orange',3]]);
+let fruitsMap = new Map([
+  ['apple', 1],
+  ['banana', 5],
+  ['orange', 3],
+]);
 
 let fruits = Object.fromEntries(fruitsMap.entries());
 ```
 
 # Set
+
 Set is similar to Map with the following major changes.
+
 - A Set has a unique collection of items. Even if you add same value multiple times, set adds that value only once.
 - There is no keys for Set
 
-## Set
 ```javascript
 let set = new Set([iterable]);
 let set = new Set(Object.values(fruits));
 let set = new Set(myArray);
 ```
+
 # Map vs Set
 
 <img src="attachments/Object_vs_Map_vs_Set.png" width="2400"/> <br/>
-
