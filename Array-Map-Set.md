@@ -12,9 +12,9 @@ A.length=0;
 What is B ? // B is empty array [] because array A is []
 ```
 
-<img src="attachments/Array_Iterate.png" width="2400"/> <br/>
-<img src="attachments/Array_Delete.png" width="2400"/> <br/>
-<img src="attachments/Array_Transform.png" width="2400"/> <br/>
+<img src="attachments/Array_ops_1.png" width="2400"/> <br/>
+<img src="attachments/Array_ops_2.png" width="2400"/> <br/>
+<img src="attachments/Array_ops_3.png" width="2400"/> <br/>
 
 # Map
 
