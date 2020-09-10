@@ -20,15 +20,8 @@
 
 
 # About JavaScript
-<img src="attachments/1.png" width="700"/> <br/>
-<img src="attachments/2.png" width="900"/> <br/>
-
 - JavaScript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
--   **Ecma International** is an organization that creates standards for
-    technologies. They have created several standards for various
-    technologies, whereas the standard code named as **ECMA 262**
-    defines a scripting language specification
-    called **ECMAScript**. JavaScript is an implementation of ECMAScript.
+-   **Ecma International** is an organization that creates standards for technologies. They have created several standards for various technologies, whereas the standard code named as **ECMA 262** defines a scripting language specification called **ECMAScript** through a Technical Committee - TC 39. JavaScript is an implementation of ECMAScript.
 -   **ECMA 262** is a standard, for example, similar to QWERTY layout
     standard. Every keyboard manufacturers can make their own brand of
     keyboard compliant to QWERTY layout standard. Similarly, the
@@ -40,12 +33,7 @@
     specifically on an external entity.  For example JavaScript is a
     scripting language targeting at external entities such as browser,
     node.js server etc.
--   Reading _ECMAScript specification_
-    helps to understand how to make a scripting language like
-    JavaScript.
--   Reading _JavaScript documentation_
-    helps to understand how to use this script language to get things
-    done.
+-   Reading _ECMAScript specification_ helps to understand how to make a scripting language like JavaScript. Reading _JavaScript documentation_ helps to understand how to use this script language to get things done.
 - JavaScript **has one call stack**
     _one call stack === one thread === only one thing is executed at a time_
 - JavaScript **has one task queue** aka **callback queue**
@@ -137,7 +125,8 @@ This is how browser renders a web page.
 You can assume the way JavaScript engine works in the event loop is similar to the way human brain works. Human's aren't capable fo multi-tasking. All what a human brain does at the forefront of minds is to simply do context-switching.
 
 # Job Queue
-Each iteration of *event loop* is called a *tick*, where the next item to execute as present in top of the even loop queue is pulled into execution. When you have a callback function ready for execution (from ajax or setTimeout) it is put into the end of this event loop queue. But, if you use **ES6 Promise, it helps to put callback functions into the end of current tick itself**. You can thus put more items into this queue forming a special *Job queue* which is guaranteed to execute after current tick and before picking up next item in the event loop. But, if you continuously add items into the Job queue then you end up with same situation like an infinite loop preventing next item in event loop to be executed.
+
+Each iteration of *event loop* is called a *tick*, where the next item to execute is picked from Task queue and is put into execution. When you have a callback function ready for execution (from ajax or setTimeout) it is put into the end of this Task queue. But, if you use **ES6 Promise, it helps to put callback functions into the end of current tick itself**. You can thus put more items into this queue forming a special *Job queue* which is guaranteed to execute after current tick and before picking up next item in the event loop. But, if you continuously add items into the Job queue then you end up with same situation like an infinite loop preventing next item in event loop to be executed.
 
 # Asynchronous execution
 You can create async in your program using **callback**, **promise** & **web workers**. EventHandlers, AJAX handlers are common built-in examples of async in JavaScript. Even though callback brings asynchrony to JavaScript, it is still single threaded. Web workers are used to achieve async in multi-threaded execution environment.
@@ -397,7 +386,7 @@ A shared worker can operate with several source/target programs in shared state 
 3.  https://github.com/deebloo/things-you-can-do-in-a-web-worker
     (Things you can do with a web worker)
 4.  https://www.html5rocks.com/en/tutorials/file/filesystem-sync/\#toc-download-xhr2
-    (Download files using web worker)
+       (Download files using web worker)
 5.  https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
     (Using web workers)
 6.  https://developer.mozilla.org/en-US/docs/Web/API/Web\_Workers\_API/Functions\_and\_classes\_available\_to\_workers
@@ -409,4 +398,4 @@ A shared worker can operate with several source/target programs in shared state 
 11. [Overview of JavaScript engine, runtime and call stack ](https://blog.sessionstack.com/how-does-JavaScript-actually-work-part-1-b0bacc073cf)
 12. [Excellent example on making blocking infinite recursion to cool infinite non blocking recursion](https://stackoverflow.com/questions/39459236/understanding-event-queue-and-call-stack-in-JavaScript)
 13. [Kyle Simpson's series of JavaScript books](https://github.com/getify/You-Dont-Know-JS)
-  
+
