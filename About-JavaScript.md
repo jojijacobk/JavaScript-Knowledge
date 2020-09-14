@@ -22,36 +22,26 @@
 # About JavaScript
 - JavaScript is a **single threaded, non blocking, asynchronous, concurrent, and general purpose scripting language**.
 -   **Ecma International** is an organization that creates standards for technologies. They have created several standards for various technologies, whereas the standard code named as **ECMA 262** defines a scripting language specification called **ECMAScript** through a Technical Committee - TC 39. JavaScript is an implementation of ECMAScript.
--   **ECMA 262** is a standard, for example, similar to QWERTY layout
-    standard. Every keyboard manufacturers can make their own brand of
-    keyboard compliant to QWERTY layout standard. Similarly, the
-    specification provided by ECMA 262 standard known
-    as ECMAScript provides the rules, standards and guidelines on making
-    a scripting language to be considered as ECMAScript compliant.
-    ES2015, ES2016 etc are different versions of ECMA 262 standard.
--   A **scripting language** is a programming language designed to act
-    specifically on an external entity.  For example JavaScript is a
-    scripting language targeting at external entities such as browser,
-    node.js server etc.
+-   **ECMA 262** is a standard, for example, similar to QWERTY layout standard. Every keyboard manufacturers can make their own brand of keyboard compliant to QWERTY layout standard. Similarly, the specification provided by ECMA 262 standard known as ECMAScript provides the rules, standards and guidelines on making a scripting language to be considered as ECMAScript compliant. ES2015, ES2016 etc are different versions of ECMA 262 standard.
+-   A **scripting language** is a programming language designed to act specifically on an external entity.  For example JavaScript is a scripting language targeting at external entities such as browser, node.js server etc.
 -   Reading _ECMAScript specification_ helps to understand how to make a scripting language like JavaScript. Reading _JavaScript documentation_ helps to understand how to use this script language to get things done.
-- JavaScript **has one call stack**
-    _one call stack === one thread === only one thing is executed at a time_
+- JavaScript **has one call stack** _one call stack === one thread === only one thing is executed at a time_
 - JavaScript **has one task queue** aka **callback queue**
     _The items in the **callback queue** would be shifted into **event loop** during its turn, and which is then pushed to the **call stack** for execution at another turn._
 - JavaScript **has one micro task queue** aka **job queue)**
     _Jobs like **Promise** would wait in microtask queue instead of callback queue to get priority attention. So, when a call stack is empty microtask queue is first pushed into call stack before looking into task queue_
 - Javacript **has one event loop**
     when call stack is empty, event loop moves one item from either of the following into call stack based on some rules:
+  
   - the callback queue, or 
   - the micro task queue, or
-  - the renderer queue
-
+- the renderer queue
+  
     This event loop enables **concurrency in JavaScript** as you could at the same time scroll down to load new content from Ajax, click on a button to fire some action, keypress to trigger some other actions and so on.
 - JavaScript has one **renderer queue**
-    The browser is constrained by what we’re doing in JavaScript. It would
-    like to repaint the screen every 16.6ms (or 60 frames/second). But it
-    can’t actually do a render if there’s code on the stack.
+    The browser is constrained by what we’re doing in JavaScript. It would like to repaint the screen every 16.6ms (or 60 frames/second). But it can’t actually do a render if there’s code on the stack.
 - **Host environment** provides many extra APIs to JavaScript. For example:
+  
   - Node.js is a server side host environment for JavaScript, which gives several APIs such as FileSystem, Process etc. 
   - Browser is a host environment which gives Web APIs to JavaScript. The following actions are handled by **Web APIs:**
     -   user fired events such as mouse click, DOM events, keyboard events
@@ -242,6 +232,57 @@ job(function () {
 // B
 // Because, "B" goes into callback queue for event loop to pick it up.
 // But, "C" & "D" goes into the jobs queue which is processed before taking up next item from callback queue.
+
+// ---------------------------------------
+
+// Example of Micro Task queue using Promise
+console.log('A');
+
+const p1 = new Promise((resolve) => {
+  console.log('B');
+
+  resolve('C');
+});
+
+p1.then((value) => {
+  console.log(value);
+});
+
+console.log('D');
+
+// Output will be
+// A
+// B
+// D
+// C
+
+// ----------------------------------------------------
+
+// Same above example with a fetch request
+console.log('A');
+
+const p1 = new Promise((resolve) => {
+  console.log('B');
+
+  fetch('https://support.oneskyapp.com/hc/en-us/article_attachments/202761627/example_1.json')
+    .then((response) => response.json())
+    .then((data) => {
+      resolve(data);
+    });
+});
+
+p1.then((value) => {
+  console.log(value);
+});
+
+console.log('D');
+
+// A
+// B
+// D
+// JSON payload
+
+
 ```
 - Callbacks are the simplest form of asynchronous implementation. But, it is not the most elegant form because of the following concerns:
 
@@ -295,10 +336,11 @@ p3.then((resolvedValue, rejectedValue) => {
   if (resolvedValue) console.log(resolvedValue);
   if (rejectedValue) console.log(rejectedValue);
 }).finally(() => {
-  console.log('Finally of p1');
+  console.log('Finally of p3');
 });
 
 // 'wait for ALL promises, all are resolved  --------------------------------'
+// 'wait for ALL promises, if any is rejected, then the WHOLE is rejected ----------------------------------
 Promise.all([p1, p3]).then(
   resolvedValue => {
     console.log(resolvedValue);
@@ -308,15 +350,6 @@ Promise.all([p1, p3]).then(
   }
 );
 
-// 'wait for ALL promises, if any is rejected, then the WHOLE is rejected ----------------------------------'
-Promise.all([p1, p2]).then(
-  resolvedValue => {
-    console.log(resolvedValue);
-  },
-  rejectedValue => {
-    console.log(rejectedValue);
-  }
-);
 // 'race with ALL promises, only first fulfillment or rejection (whichever comes first) is considered ---------------------------'
 Promise.race([p1, p2]).then(
   resolvedValue => {
@@ -345,10 +378,11 @@ parallel and later interact with the main thread via postMesage. 
 A worker thread is a feature provided by hosting environment (browser), its not part of JavaScript because there is no multi-threading in JavaScript. 
 
 ### Dedicated worker
+
 The worker threads are like a separate browser instance with separate JavaScript engine and works on a separate process as compared to the main program. You can create a dedicated worker from main program or from another worker as follows:
 
 ```JavaScript
-const w1 = new Workder('path.tofile.js'); // also accepts binary blob of JS file instead of file itself.
+const w1 = new Worker('path.tofile.js'); // also accepts binary blob of JS file instead of file itself.
 w1.addEventListener('message',(data)=>{
     console.log(data);
 })
@@ -368,6 +402,10 @@ If an app/page using worker is opened in multiple tabs of browser, it causes dup
 
 ### Shared worker
 A shared worker can operate with several source/target programs in shared state using a single worker. To identify browser tab/instance of page is facilitated using _ports_. When you create a worker from a tab to the JavaScript file/blob, Shared worker is instantiated and connects to that tab via a port. Similarly, any other tabs will connect with different ports to the same shared worker.
+
+---
+
+**Additional Notes**
 
 
 - While you log data to console for debugging purpose, it may occur that data logged via `console.log(data)` is not showing correct value as expected. This is because, as it is an I/O bound operation, browser tends to run it in the background asynchronously, hence logging actually works at a later point of time, and by then the logged values might have already been changed. Better alternatives are :
