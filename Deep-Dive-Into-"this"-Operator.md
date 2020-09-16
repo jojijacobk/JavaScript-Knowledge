@@ -94,7 +94,9 @@ Implicit binding doesn't work in certain situations such as :
 
         In cases like *`Obj.foo`* is passed as an argument (aka
         callback), it is like alias referencing and loses implicit
-        binding.
+        binding. 
+        
+        Similarly, if you have a code like `setTimeout(Obj.foo,100)`, it is like alias referencing and loses implicit binding.
 
 ### 3. Explicit binding
 
@@ -124,6 +126,41 @@ context.
 ### Precedence order of rules
 
 `arrow function` > `new` > `explicit` > `implicit` > `default`
+
+```javascript
+// To understand how prcedence of this operator as imposed by "new" is higher in order than "explicit" binding, solve the following problem.
+
+// Predict the output of console.log
+
+var obj1 = {
+    a: 1
+}
+
+function foo(something) {
+    var obj2 = {
+        a: 2
+    }
+
+    this.a = something;
+
+    console.log(this.constructor.name); // ?
+
+    function f1() {
+        console.log(this.constructor.name); // ?
+    }
+
+    f1();
+}
+var foo_obj = foo.bind(obj1);
+
+var baz = new foo_obj(3);
+
+console.log(obj1.a); // ?
+console.log(foo_obj.a); // ?
+console.log(baz.a); // ?
+```
+
+
 
 ## Binding Exceptions
 
