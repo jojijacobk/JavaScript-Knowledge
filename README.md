@@ -1,7 +1,9 @@
 - [About JavaScript](About-JavaScript.md)
 - [DOM](DOM.md)
-- [Inheritance](Inheritance.md)
 - [Deep Dive Into `this` Operator](Deep-Dive-Into-"this"-Operator.md)
-- [Object & Prototype](Object-%26-Prototype.md)
+- [Built-in Objects & Types](Built-in Objects & Types.md)
+- [Inheritance](Inheritance.md)
+- [Prototypal-Chain](Prototypal-Chain.md)
 - [Array, Map, Set](Array-Map-Set.md)
 - [Offline](Offline.md)
+
