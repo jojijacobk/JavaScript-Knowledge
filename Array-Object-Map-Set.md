@@ -6,17 +6,21 @@ In JavaScript, every Objects including Arrays are passed by reference
 let A = [1,3,5];
 let B = A;
 A.splice(1,1,10);
-what is B ? // B is also [1,3,5] because assigning arrays works as pass by reference
+what is B ? // B is also [1,10,5] because assigning arrays works as pass by reference
 
 A.length=0;
 What is B ? // B is empty array [] because array A is []
 ```
 
-<img src="attachments/Array_ops_1.png" width="2400"/> <br/>
-<img src="attachments/Array_ops_2.png" width="2400"/> <br/>
-<img src="attachments/Array_ops_3.png" width="2400"/> <br/>
+![Array insert](attachments/Array insert.png)
+
+![Array sort](attachments/Array sort.png)
+
+![Array Transform](attachments/Array Transform.png)
 
 # Map
+
+![Object Map Set](attachments/Object Map Set.png)
 
 ## Difference between Map and Object
 
@@ -82,7 +86,3 @@ let set = new Set([iterable]);
 let set = new Set(Object.values(fruits));
 let set = new Set(myArray);
 ```
-
-# Map vs Set
-
-<img src="attachments/Object_vs_Map_vs_Set.png" width="2400"/> <br/>
