@@ -52,7 +52,7 @@ DOM is not only for browsers. A server program can walk through DOM.
 | <img src="attachments/Traversal through DOM nodes.png" width="500px">     | <img src="attachments/Traversal through DOM elements.png" width="600px"> |
 
 **Note:**
-`document.body.firstChild` may not be your first tag element inside HTML body. It could be a whitespace `text` node if your HTML is formatted with spaces like a normal page. But, `document.body.firstElementChild` is always gonna be the first **tag** element.
+`document.body.firstChild` may not be your first **tag** element inside HTML body. It could be a whitespace `text` node if your HTML is formatted with spaces like a normal page. But, `document.body.firstElementChild` is always gonna be the first **tag** element.
 
 <img src="attachments/difference between node and element 2.png" width="300px"> <br/>
 <img src="attachments/difference between node and element 1.png" width="500px"> <br/>
@@ -66,7 +66,7 @@ DOM is not only for browsers. A server program can walk through DOM.
 
 ## Search inside DOM
 
-<img src="attachments/different ways to search element.png" width="700px"> <br/>\
+<img src="attachments/different ways to search element.png" width="700px"> <br/>
 <img src="attachments/matches, closest, contains .png" width="700px"> <br/>
 
 ## DOM node classes
@@ -114,7 +114,7 @@ When a user types some `input` element's value, that new value is updated in the
 
 ## Custom Attributes
 
-You can mark any custom value to an element using classes. But, they are least elegant for this use case. Better approach is to use custom attributes. But, there is a catch that as HTML is a living standard, they might introduce an attribute similar to your own custom attribute. To avoid that conflict you can use `data-*` attribute. Any custom attributes you add with prefix `data-` will not conflict as they are reserved for programmers. And, such values are also accessible via `elem.dataset` property.
+You can mark any custom value to an element using CSS classes. But, they are least elegant for this use case. Better approach is to use custom attributes. But, there is a catch that as HTML is a living standard, they might introduce an attribute similar to your own custom attribute. To avoid that conflict you can use `data-*` attribute. Any custom attributes you add with prefix `data-` will not conflict as they are reserved for programmers. And, such values are also accessible via `elem.dataset` property.
 
 ```
 //HTML
@@ -201,7 +201,7 @@ body[data-professional-hobby] {
 
 ## Document and resource loading
 The events associated with page load are :
-- `DOMContentLoaded` - this event is fired when HTML ad JavaScript is loaded, DOM is ready, and all JavaScript has finished execution. This event can ignore the following modes of script tags  : `<script type="module">` or `async`. At this time both images `<img>` and CSS are not loaded.
+- `DOMContentLoaded` - this event is fired when HTML and JavaScript is loaded, DOM is ready, and all JavaScript has finished execution. This event can ignore the following modes of script tags  : `<script type="module">` or `async`. At this time both images `<img>` and CSS are not loaded.
 - `load` 
 - `beforeunload`
 - `unload` . At this time, you can send any last moment statistics to server by `navigator.sendBeacon(url,data)`.
@@ -304,6 +304,6 @@ range.setEnd(node,offset);
 let selection = document.getSelection();
 selection.removeAllRanges()
 selection.addRange(range);
-```    
+```
 # References
 - [List of all possible CSS selectors](https://drafts.csswg.org/selectors/#overview)
