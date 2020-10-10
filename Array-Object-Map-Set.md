@@ -12,15 +12,15 @@ A.length=0;
 What is B ? // B is empty array [] because array A is []
 ```
 
-![Array insert](attachments/Array insert.png)
+![Array insert](attachments/Array%20insert.png)
 
-![Array sort](attachments/Array sort.png)
+![Array sort](attachments/Array%20sort.png)
 
-![Array Transform](attachments/Array Transform.png)
+![Array Transform](attachments/Array%20Transform.png)
 
 # Map
 
-![Object Map Set](attachments/Object Map Set.png)
+![Object Map Set](attachments/Object%20Map%20Set.png)
 
 ## Difference between Map and Object
 
