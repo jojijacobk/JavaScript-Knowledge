@@ -35,7 +35,7 @@
   
   - the callback queue, or 
   - the micro task queue, or
-- the renderer queue
+  - the renderer queue
   
     This event loop enables **concurrency in JavaScript** as you could at the same time scroll down to load new content from Ajax, click on a button to fire some action, keypress to trigger some other actions and so on.
 - JavaScript has one **renderer queue**
